@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generation</title>
+</head>
+<body>
+    <h1>Random Number Generator</h1>
+    <button onclick="shawWeGo()">Generate Random Number</button>
+    <div id="result"></div>
+    <script>
+        let contador = 0;
+        function generateRandomNumber() {
+            // Generate a random number between 0 and 100
+            var randomNum = Math.floor(Math.random() * 4096) + 1;
+            
+            // Display the result
+            document.getElementById("result").innerText = "Random Number: " + randomNum;
+            
+            return randomNum;
+        }
+        function shawWeGo() {
+            while (generateRandomNumber() !== 4096) {
+                 document.getElementById("result").innerHTML = "Random Number: " + randomNum;
+                 if (generateRandomNumber() === 4096) {
+                document.getElementById("result").innerHTML = '<img src="shinig.gif"">';
+            }
+            }
+            
+        }
+    </script>
+</body>
+</html>
