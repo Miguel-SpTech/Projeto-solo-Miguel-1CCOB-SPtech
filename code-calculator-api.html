@@ -1,0 +1,79 @@
+<!-- Criado por Marise Miranda | 2017.1 -->
+<!-- Adaptado por Matheus Matos | 2025.1 -->
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon binary Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body bgcolor="#000000">
+    <center>
+        <div class="divprinc">
+            <h1 class="colorred">Pokémon Binary Machine</h1>
+            <span class="colorred">veja qual é o pokemon equivalente ao seu numero</span>
+            <br><span class="colorred">pokemon disponiveis atualmente: 1-7, 9-10, 59, 94, 121, 158, 197, 249, 445, 553, 567, 579, 587, 623, 643-644, 649 </span>
+        </div>
+        <div class="divprinc">
+            <h3 class="colorred">Digite um número decimal:</h3>
+            <input id="demo1" type="text" placeholder="Ex: 42" oninput="converter()">
+        </div><br><br>
+        <div class="divprinc colorwhite">
+            <h3>Resultados:</h3>
+            <p>Octal:
+            <div id="demo2" ></div>
+            </p>
+            <p>Hexadecimal:
+            <div id="demo3" ></div>
+            </p>
+            <p>Binário:
+            <div id="demo4" ></div>
+            </p>
+        </div>
+        <div id="div_desc" class="colorwhite"></div>
+        <div id="div_img" class="divimg" style="height: 1000px;width: 1000px;">
+            <img id="img_1" src="" alt="">
+        </div> 
+    </center>
+
+    <script>
+
+
+        async function converter() {
+            document.getElementById("div_img").innerHTML = "";
+            var decimal = Number(demo1.value);
+            let octal = decimal.toString(8);
+            let hexadecimal = decimal.toString(16);
+            let binary = decimal.toString(2);
+            
+
+            demo2.innerHTML = octal;
+            demo3.innerHTML = hexadecimal;
+            demo4.innerHTML = binary;
+
+                    // Pokéapi API Example
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${decimal}`, {
+                method: 'GET',
+                headers: {
+                'Content-Type': 'application/json'
+                }
+            });
+            
+
+            const data = await response.json();
+            console.log(data.sprites.back_default);
+
+            let img1 = document.getElementById("img_1")
+
+            img1.src = data.sprites.front_shiny
+
+            
+
+        }
+    </script>
+</body>
+
+</html>
