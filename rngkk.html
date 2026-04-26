@@ -6,27 +6,37 @@
     <title>Document</title>
 </head>
 <body>
-    <button onclick="rng()">
+    <button onclick="jackPot()">
         let's go gambling
     </button>
     <button onclick="shinyRGB()">Shiny nos Jogos da 1 até a 5</button>
     <button onclick="zerarContador()">Zerar</button>
     <div id="divkk"></div>
+    
 </body>
 </html>
 <script>
     let contador = 0;
     function rng() {
-        let numRandom = Math.random();//o random só gera número entre 0 e 1 por si só
-        let numRandom10 = Math.random() * 10;// agora multiplicando ele agora gera números entre 0 e 10
-        let numRandom10to20 = Math.random() * (20-10) + 10; // nesse caso usamos a formula Math.random() * (max - min) + min
-        let numRandom10to20pt2 = Math.random() * (20 - 10 + 1) + 10 // aqui é para quando voce não usa o toFixed para arredondar
-        divkk.innerHTML = `${numRandom10.toFixed(0)}`;
-        console.log(numRandom10);
+        let numRandom = Math.random() * 9;
+        return numRandom
+    }
+    function jackPot (){
+        divkk.innerHTML = "";
+        let num1 = rng().toFixed(0);
+        let num2 = rng().toFixed(0);
+        let num3 = rng().toFixed(0);
+        contador ++;
+
+        divkk.innerHTML = `${num1}  ${num2}  ${num3} rolls: ${contador}<br>`;
+
+        if (num1 == num2 && num1 == num3) {
+            divkk.innerHTML += `<img src="jackpot.gif" alt="">`;
+        }
     }
     function zerarContador(){
         divkk.innerHTML = "";
-        contador = 0
+        contador = 0;
     }
     function shinyHunt(max,min) {
         let shinyChance = Math.random() * (max - min + 1) + min;
@@ -42,4 +52,5 @@
             divkk.innerHTML = `${contador}º encontro`;
             divkk.innerHTML += `<br><img src="shining.gif" alt="">`
     }
+
 </script>
