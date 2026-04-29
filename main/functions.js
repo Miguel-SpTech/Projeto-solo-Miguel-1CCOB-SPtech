@@ -46,14 +46,29 @@ async function finded() {
 
 }
 
+function catchRate() {
+    
+}
+
+
 function runPoke() {
+
+    finded()
 
 }
 
 function battlePoke() {
 
+    qtdPokeball++
+    document.getElementById("msm_qtdPokeball").innerHTML = `Quantidade de Pokebolas: ${qtdPokeball}`
+    finded()
+
 }
 
 function catchPoke() {
+
+    qtdPokeball--
+    document.getElementById("msm_qtdPokeball").innerHTML = `Quantidade de Pokebolas: ${qtdPokeball}`
+    finded()
 
 }
