@@ -1,5 +1,21 @@
-let qtdPokeball = 10
-document.getElementById("msm_qtdPokeball").innerHTML = `Quantidade de Pokebolas: ${qtdPokeball}`
+
+
+
+let player = {
+    "nick": "",
+    "pokedex": 0,
+    "catchMultiplier": 1,
+    "damage":1,
+    "life":10,
+    "badges":0,
+    "champeon":false,
+    "qtdPokeball":10,
+
+}
+
+document.getElementById("msm_qtdPokeball").innerHTML = `Quantidade de Pokebolas: ${player.qtdPokeball}`;
+
+console.log(pokemons)
 
 function rng(max,min) {
     let random = Math.random() * (max - min + 1) + min;
@@ -22,13 +38,17 @@ function findPokemon1() {
     return finded
 }
 
-async function finded() {
-    let finded = findPokemon1();
+
+
+async function runPoke() {
+
+    let pokemon = findPokemon1();
     let gotShiny = oldShinyChnace();
-    let img1 = document.getElementById("img_1")
+    let img1 = document.getElementById("img_1");
+    let pokemon_name = document.getElementById("pokemonName");
 
 
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${finded}`, 
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`, 
         {method: 'GET', 
         headers: {
         'Content-Type': 'application/json'
@@ -37,38 +57,39 @@ async function finded() {
 
     const data = await response.json();
     console.log(data);
-    
     if (gotShiny == 8192) {
         img1.src = data.sprites.front_shiny;
+        pokemon_name.innerHTML = `${pokemons[pokemon].name} ✨`
     } else {
         img1.src = data.sprites.front_default;
+        pokemon_name.innerHTML = `${pokemons[pokemon].name}`
     }
 
-}
-
-function catchRate() {
     
-}
-
-
-function runPoke() {
-
-    finded()
 
 }
 
 function battlePoke() {
 
-    qtdPokeball++
-    document.getElementById("msm_qtdPokeball").innerHTML = `Quantidade de Pokebolas: ${qtdPokeball}`
+    player.qtdPokeball = player.qtdPokeball + 1;
+    document.getElementById("msm_qtdPokeball").innerHTML = `Quantidade de Pokebolas: ${player.qtdPokeball}`
     finded()
 
 }
 
 function catchPoke() {
-
-    qtdPokeball--
-    document.getElementById("msm_qtdPokeball").innerHTML = `Quantidade de Pokebolas: ${qtdPokeball}`
+    
+    player.qtdPokeball = player.qtdPokeball - 1;
+    document.getElementById("msm_qtdPokeball").innerHTML = `Quantidade de Pokebolas: ${player.qtdPokeball}`
     finded()
+
+}
+
+function catchRate() {
+    finded();
+    let actionCatch = rng(255,1);
+    
+
+
 
 }

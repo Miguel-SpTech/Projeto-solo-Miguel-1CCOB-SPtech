@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Mapa de Kanto</title>
+
+<style>
+  body {
+    font-family: Arial;
+    background: #1e1e2f;
+    color: white;
+    text-align: center;
+  }
+
+  .mapa {
+    display: grid;
+    grid-template-columns: repeat(5, 120px);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  button {
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #4CAF50;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    background: #45a049;
+    transform: scale(1.05);
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Mapa de Kanto</h1>
+
+<div class="mapa">
+  <button onclick="info('Pallet Town')">Pallet</button>
+  <button onclick="info('Route 1')">R1</button>
+  <button onclick="info('Viridian City')">Viridian</button>
+  <button onclick="info('Route 2')">R2</button>
+  <button onclick="info('Pewter City')">Pewter</button>
+
+  <button onclick="info('Route 3')">R3</button>
+  <button onclick="info('Mt Moon')">Mt.Moon</button>
+  <button onclick="info('Route 4')">R4</button>
+  <button onclick="info('Cerulean City')">Cerulean</button>
+  <button onclick="info('Route 24')">R24</button>
+
+  <button onclick="info('Route 5')">R5</button>
+  <button onclick="info('Saffron City')">Saffron</button>
+  <button onclick="info('Route 6')">R6</button>
+  <button onclick="info('Vermilion City')">Vermilion</button>
+  <button onclick="info('Route 11')">R11</button>
+
+  <button onclick="info('Lavender Town')">Lavender</button>
+  <button onclick="info('Route 8')">R8</button>
+  <button onclick="info('Celadon City')">Celadon</button>
+  <button onclick="info('Route 16')">R16</button>
+  <button onclick="info('Fuchsia City')">Fuchsia</button>
+
+  <button onclick="info('Route 21')">R21</button>
+  <button onclick="info('Cinnabar Island')">Cinnabar</button>
+  <button onclick="info('Route 22')">R22</button>
+  <button onclick="info('Victory Road')">Victory</button>
+  <button onclick="info('Indigo Plateau')">Liga</button>
+</div>
+
+<script>
+  function info(local) {
+    alert("Você clicou em: " + local);
+  }
+</script>
