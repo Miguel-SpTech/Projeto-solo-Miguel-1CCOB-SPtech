@@ -57,12 +57,22 @@ async function runPoke() {
 
     const data = await response.json();
     console.log(data);
-    if (gotShiny == 8192) {
-        img1.src = data.sprites.front_shiny;
-        pokemon_name.innerHTML = `${pokemons[pokemon].name} ✨`
-    } else {
-        img1.src = data.sprites.front_default;
-        pokemon_name.innerHTML = `${pokemons[pokemon].name}`
+
+    if (pokemon > 151) {pokemon = 151};
+
+    for (let i = 151 ; pokemons[i].id > 0 ; i--) {
+        pokemons[i].canFind = true
+    }
+
+    if (pokemons[pokemon].canFind == true) {
+
+        if (gotShiny == 8192) {
+            img1.src = data.sprites.front_shiny;
+            pokemon_name.innerHTML = `${pokemons[pokemon].name} ✨`;
+        } else {
+            img1.src = data.sprites.front_default;
+            pokemon_name.innerHTML = `${pokemons[pokemon].name}`;
+        }
     }
 
     
