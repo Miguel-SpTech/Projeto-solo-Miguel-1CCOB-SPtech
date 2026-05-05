@@ -1,4 +1,5 @@
 let pokemon = 0;
+let route = 1;
 
 let button1 = document.getElementById("runButton");
 let img1 = document.getElementById("img_1");
@@ -52,141 +53,17 @@ async function findPokemon1() {
     }
 }
 
-function route1() {
-    button1.onclick = route1;
-    document.getElementById("spanRoute").innerHTML = `Route 1`
-    for (let i = 151 ; pokemons[i].id > 0 ; i--) {pokemons[i].canFind = false}
-    for (let i = 151 ; pokemons[i].id > 0 ; i--) {
-        if (i == 16 || i == 19) {
-            pokemons[i].canFind = true
-        }
-    }
 
-    
-    pokemon = rng(100,1);
-    console.log(pokemon)
-    if (pokemon < 50) {pokemon = 19}
-    else {pokemon = 16}
-    
-    findPokemon1()
 
+function run() {
+    window["route" + route]();
 }
-function route2() {
-    button1.onclick = route2;
-    document.getElementById("spanRoute").innerHTML = `Route 2`
-    for (let i = 151 ; pokemons[i].id > 0 ; i--) {pokemons[i].canFind = false}
-    for (let i = 151 ; pokemons[i].id > 0 ; i--) {
-        if (i == 16 || i == 19) {
-            pokemons[i].canFind = true
-        }
-    }
-
-    
-    pokemon = rng(100,1);
-    console.log(pokemon)
-    if (pokemon < 50) {pokemon = 19}
-    else {pokemon = 16}
-    
-    findPokemon1()
-}
-function route3() {
-    button1.onclick = route2;
-    document.getElementById("spanRoute").innerHTML = `Route 2`
-    for (let i = 151 ; pokemons[i].id > 0 ; i--) {pokemons[i].canFind = false}
-    for (let i = 151 ; pokemons[i].id > 0 ; i--) {
-        if (i == 16 || i == 19) {
-            pokemons[i].canFind = true
-        }
-    }
-
-    
-    pokemon = rng(100,1);
-    console.log(pokemon)
-    if (pokemon < 50) {pokemon = 19}
-    else {pokemon = 16}
-    
-    findPokemon1()
-}
-function route4() {
-    button1.onclick = route2;
-    document.getElementById("spanRoute").innerHTML = `Route 2`
-    for (let i = 151 ; pokemons[i].id > 0 ; i--) {pokemons[i].canFind = false}
-    for (let i = 151 ; pokemons[i].id > 0 ; i--) {
-        if (i == 16 || i == 19) {
-            pokemons[i].canFind = true
-        }
-    }
-
-    
-    pokemon = rng(100,1);
-    console.log(pokemon)
-    if (pokemon < 50) {pokemon = 19}
-    else {pokemon = 16}
-    
-    findPokemon1()
-}
-function route5() {
-    button1.onclick = route2;
-    document.getElementById("spanRoute").innerHTML = `Route 2`
-    for (let i = 151 ; pokemons[i].id > 0 ; i--) {pokemons[i].canFind = false}
-    for (let i = 151 ; pokemons[i].id > 0 ; i--) {
-        if (i == 16 || i == 19) {
-            pokemons[i].canFind = true
-        }
-    }
-
-    
-    pokemon = rng(100,1);
-    console.log(pokemon)
-    if (pokemon < 50) {pokemon = 19}
-    else {pokemon = 16}
-    
-    findPokemon1()
-}
-function route6() {
-    button1.onclick = route2;
-    document.getElementById("spanRoute").innerHTML = `Route 2`
-    for (let i = 151 ; pokemons[i].id > 0 ; i--) {pokemons[i].canFind = false}
-    for (let i = 151 ; pokemons[i].id > 0 ; i--) {
-        if (i == 16 || i == 19) {
-            pokemons[i].canFind = true
-        }
-    }
-
-    
-    pokemon = rng(100,1);
-    console.log(pokemon)
-    if (pokemon < 50) {pokemon = 19}
-    else {pokemon = 16}
-    
-    findPokemon1()
-}
-function route7() {}
-function route8() {}
-function route9() {}
-function route10() {}
-function route11() {}
-function route12() {}
-function route13() {}
-function route14() {}
-function route15() {}
-function route16() {}
-function route17() {}
-function route18() {}
-function route19() {}
-function route20() {}
-function route21() {}
-function route22() {}
-function route23() {}
-function route24() {}
-function route25() {}
-function mtSilver() {}
 
 function battlePoke() {
 
     player.qtdPokeball = player.qtdPokeball + 1;
     document.getElementById("msm_qtdPokeball").innerHTML = `Quantidade de Pokebolas: ${player.qtdPokeball}`
-    finded()
+    window["route" + route]();
 
 }
 
@@ -194,15 +71,10 @@ function catchPoke() {
     
     player.qtdPokeball = player.qtdPokeball - 1;
     document.getElementById("msm_qtdPokeball").innerHTML = `Quantidade de Pokebolas: ${player.qtdPokeball}`
-    finded()
+    window["route" + route]();
 
 }
 
 function catchRate() {
-    finded();
     let actionCatch = rng(255,1);
-    
-
-
-
 }
