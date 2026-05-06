@@ -1,6 +1,7 @@
 let pokemon = 0;
 let route = 1;
 
+
 let button1 = document.getElementById("runButton");
 let img1 = document.getElementById("img_1");
 let pokemon_name = document.getElementById("pokemonName");

@@ -20,7 +20,7 @@ let routes = {
 
                 },
 
-function route2() {
+"route2":function route2() {
     button1.onclick = route2;
     route = 2
     document.getElementById("spanRoute").innerHTML = `Route 2`
@@ -34,15 +34,15 @@ function route2() {
     
     pokemon = rng(100,1);
     console.log(pokemon)
-    if (pokemon < 45) {pokemon = 19}
-    else if(pokemon < 90) {pokemon = 16}
-    else if(pokemon<95) {pokemon = 10}
+    if (pokemon <= 45) {pokemon = 19}
+    else if(pokemon <= 90) {pokemon = 16}
+    else if(pokemon <= 95) {pokemon = 10}
     else {pokemon = 13}
     
     findPokemon1()
-}
+},
 
-function route3() {
+"route3":function route3() {
     button1.onclick = route3;
     route = 3;
     document.getElementById("spanRoute").innerHTML = `Route 3`
@@ -56,22 +56,22 @@ function route3() {
     
     pokemon = rng(100,1);
     console.log(pokemon)
-    if (pokemon < 35) {pokemon = 16}
-    else if(pokemon < 60) {pokemon = 19}
-    else if(pokemon < 85) {pokemon = 21}
-    else if(pokemon < 93) {pokemon = 29}
+    if (pokemon <= 35) {pokemon = 16}
+    else if(pokemon <= 60) {pokemon = 19}
+    else if(pokemon <= 85) {pokemon = 21}
+    else if(pokemon <= 93) {pokemon = 29}
     else {pokemon = 32}
     
     findPokemon1()
-}
+},
 
-function route4() {
+"route4":function route4() {
     button1.onclick = route4;
     route = 4;
     document.getElementById("spanRoute").innerHTML = `Route 4`
     for (let i = 151 ; pokemons[i].id > 0 ; i--) {pokemons[i].canFind = false}
     for (let i = 151 ; pokemons[i].id > 0 ; i--) {
-        if (i == 16 || i == 19) {
+        if (i == 16 || i == 21) {
             pokemons[i].canFind = true
         }
     }
@@ -79,18 +79,18 @@ function route4() {
     
     pokemon = rng(100,1);
     console.log(pokemon)
-    if (pokemon < 50) {pokemon = 19}
-    else {pokemon = 16}
+    if (pokemon <= 55) {pokemon = 16}
+    else {pokemon = 21}
     
     findPokemon1()
-}
-function route5() {
+},
+"route5":function route5() {
     button1.onclick = route5;
     route = 5
     document.getElementById("spanRoute").innerHTML = `Route 5`
     for (let i = 151 ; pokemons[i].id > 0 ; i--) {pokemons[i].canFind = false}
     for (let i = 151 ; pokemons[i].id > 0 ; i--) {
-        if (i == 16 || i == 19) {
+        if (i == 16 || i == 52|| i == 43 || i == 69) {
             pokemons[i].canFind = true
         }
     }
@@ -98,18 +98,20 @@ function route5() {
     
     pokemon = rng(100,1);
     console.log(pokemon)
-    if (pokemon < 50) {pokemon = 19}
-    else {pokemon = 16}
+    if (pokemon <= 40) {pokemon = 16}
+    else if(pokemon <= 80){pokemon = 52}
+    else if(pokemon<=90){pokemon = 43}
+    else {pokemon = 69}
     
     findPokemon1()
-}
-function route6() {
+},
+"route6":function route6() {
     button1.onclick = route6;
     route = 6;
     document.getElementById("spanRoute").innerHTML = `Route 6`
     for (let i = 151 ; pokemons[i].id > 0 ; i--) {pokemons[i].canFind = false}
     for (let i = 151 ; pokemons[i].id > 0 ; i--) {
-        if (i == 16 || i == 19) {
+        if (i == 16 || i == 52|| i == 43 || i == 69) {
             pokemons[i].canFind = true
         }
     }
@@ -117,18 +119,20 @@ function route6() {
     
     pokemon = rng(100,1);
     console.log(pokemon)
-    if (pokemon < 50) {pokemon = 19}
-    else {pokemon = 16}
+    if (pokemon <= 40) {pokemon = 16}
+    else if(pokemon <= 80){pokemon = 52}
+    else if(pokemon<=90){pokemon = 43}
+    else {pokemon = 69}
     
     findPokemon1()
-}
-function route7() {
+},
+"route7":function route7() {
     button1.onclick = route7;
     route = 7;
     document.getElementById("spanRoute").innerHTML = `Route 7`
     for (let i = 151 ; pokemons[i].id > 0 ; i--) {pokemons[i].canFind = false}
     for (let i = 151 ; pokemons[i].id > 0 ; i--) {
-        if (i == 16 || i == 19) {
+        if (i == 16 || i == 52|| i == 58 || i == 37) {
             pokemons[i].canFind = true
         }
     }
@@ -136,18 +140,20 @@ function route7() {
     
     pokemon = rng(100,1);
     console.log(pokemon)
-    if (pokemon < 50) {pokemon = 19}
-    else {pokemon = 16}
+    if (pokemon <= 30) {pokemon = 16}
+    else if(pokemon <= 60){pokemon = 52}
+    else if(pokemon<=80){pokemon = 58}
+    else {pokemon = 37}
     
     findPokemon1()
-}
-function route8() {
+},
+"route8":function route8() {
     button1.onclick = route8;
     route = 8;
     document.getElementById("spanRoute").innerHTML = `Route 8`
     for (let i = 151 ; pokemons[i].id > 0 ; i--) {pokemons[i].canFind = false}
     for (let i = 151 ; pokemons[i].id > 0 ; i--) {
-        if (i == 16 || i == 19) {
+        if (i == 16 || i == 52|| i == 58 || i == 37) {
             pokemons[i].canFind = true
         }
     }
@@ -155,12 +161,14 @@ function route8() {
     
     pokemon = rng(100,1);
     console.log(pokemon)
-    if (pokemon < 50) {pokemon = 19}
-    else {pokemon = 16}
+    if (pokemon <= 30) {pokemon = 16}
+    else if(pokemon <= 60){pokemon = 52}
+    else if(pokemon<=80){pokemon = 58}
+    else {pokemon = 37}
     
     findPokemon1()
-}
-function route9() {
+},
+"route9":function route9() {
     button1.onclick = route9;
     route = 9;
     document.getElementById("spanRoute").innerHTML = `Route 9`
@@ -178,8 +186,8 @@ function route9() {
     else {pokemon = 16}
     
     findPokemon1()
-}
-function route10() {
+},
+"route10":function route10() {
     button1.onclick = route10;
     route = 10;
     document.getElementById("spanRoute").innerHTML = `Route 10`
@@ -197,8 +205,8 @@ function route10() {
     else {pokemon = 16}
     
     findPokemon1()
-}
-function route11() {
+},
+"route11":function route11() {
     button1.onclick = route11;
     route = 11;
     document.getElementById("spanRoute").innerHTML = `Route 11`
@@ -216,8 +224,8 @@ function route11() {
     else {pokemon = 16}
     
     findPokemon1()
-}
-function route12() {
+},
+"route12":function route12() {
     button1.onclick = route12;
     route = 12;
     document.getElementById("spanRoute").innerHTML = `Route 12`
@@ -235,8 +243,8 @@ function route12() {
     else {pokemon = 16}
     
     findPokemon1()
-}
-function route13() {
+},
+"route13":function route13() {
     button1.onclick = route13;
     route = 13;
     document.getElementById("spanRoute").innerHTML = `Route 13`
@@ -254,8 +262,8 @@ function route13() {
     else {pokemon = 16}
     
     findPokemon1()
-}
-function route14() {
+},
+"route14":function route14() {
     button1.onclick = route14;
     route = 14;
     document.getElementById("spanRoute").innerHTML = `Route 14`
@@ -273,8 +281,8 @@ function route14() {
     else {pokemon = 16}
     
     findPokemon1()
-}
-function route15() {
+},
+"route15":function route15() {
     button1.onclick = route15;
     route = 15;
     document.getElementById("spanRoute").innerHTML = `Route 15`
@@ -292,8 +300,8 @@ function route15() {
     else {pokemon = 16}
     
     findPokemon1()
-}
-function route16() {
+},
+"route16":function route16() {
     button1.onclick = route16;
     route = 16;
     document.getElementById("spanRoute").innerHTML = `Route 16`
@@ -311,8 +319,8 @@ function route16() {
     else {pokemon = 16}
     
     findPokemon1()
-}
-function route17() {
+},
+"route17":function route17() {
     button1.onclick = route17;
     route = 17;
     document.getElementById("spanRoute").innerHTML = `Route 17`
@@ -330,8 +338,8 @@ function route17() {
     else {pokemon = 16}
     
     findPokemon1()
-}
-function route18() {
+},
+"route18":function route18() {
     button1.onclick = route18;
     route = 18;
     document.getElementById("spanRoute").innerHTML = `Route 18`
@@ -349,8 +357,8 @@ function route18() {
     else {pokemon = 16}
     
     findPokemon1()
-}
-function route19() {
+},
+"route19":function route19() {
     button1.onclick = route19;
     route = 19;
     document.getElementById("spanRoute").innerHTML = `Route 19`
@@ -368,8 +376,8 @@ function route19() {
     else {pokemon = 16}
     
     findPokemon1()
-}
-function route20() {
+},
+"route20":function route20() {
     button1.onclick = route20;
     route = 20;
     document.getElementById("spanRoute").innerHTML = `Route 20`
@@ -387,8 +395,8 @@ function route20() {
     else {pokemon = 16}
     
     findPokemon1()
-}
-function route21() {
+},
+"route21":function route21() {
     button1.onclick = route21;
     route = 21;
     document.getElementById("spanRoute").innerHTML = `Route 21`
@@ -406,8 +414,8 @@ function route21() {
     else {pokemon = 16}
     
     findPokemon1()
-}
-function route22() {
+},
+"route22":function route22() {
     button1.onclick = route22;
     route = 22;
     document.getElementById("spanRoute").innerHTML = `Route 22`
@@ -425,8 +433,8 @@ function route22() {
     else {pokemon = 16}
     
     findPokemon1()
-}
-function route23() {
+},
+"route23":function route23() {
     button1.onclick = route23;
     route = 23;
     document.getElementById("spanRoute").innerHTML = `Route 23`
@@ -444,8 +452,8 @@ function route23() {
     else {pokemon = 16}
     
     findPokemon1()
-}
-function route24() {
+},
+"route24":function route24() {
     button1.onclick = route24;
     route = 24;
     document.getElementById("spanRoute").innerHTML = `Route 24`
@@ -463,8 +471,8 @@ function route24() {
     else {pokemon = 16}
     
     findPokemon1()
-}
-function route25() {
+},
+"route25":function route25() {
     button1.onclick = route25;
     route = 25;
     document.getElementById("spanRoute").innerHTML = `Route 25`
@@ -483,5 +491,4 @@ function route25() {
     
     findPokemon1()
 }
-function mtSilver() {}
 }
