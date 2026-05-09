@@ -5,72 +5,11 @@ body {
   color: white;
 }
 
-/* NAVBAR */
-.navbar {
-  width: 100%;
-  height: 70px;
-  background: #111;
-  border-bottom: 2px solid red;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 0 30px;
-  box-sizing: border-box;
-}
-
-.navbar h2 {
-  color: white;
-}
-
-.navbar ul {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-
-.navbar ul li {
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.navbar ul li:hover {
-  color: red;
-}
 
 /* LAYOUT GERAL */
 .layout {
   display: flex;
   height: calc(100vh - 70px);
-}
-
-/* LEFT SIDEBAR */
-.pokedex {
-  width: 220px;
-  background: #111;
-  border-right: 2px solid red;
-  color: white;
-  padding: 15px;
-  overflow-y: auto;
-}
-
-.pokedex h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.lista p {
-  margin: 5px 0;
-  padding: 10px;
-  background: #222;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.lista p:hover {
-  background: red;
 }
 
 /* CONTEÚDO CENTRAL */
@@ -88,8 +27,8 @@ body {
 
 
 .imgPoke {
-    height: 120px;
-    width: 120px;
+    height: 200px;
+    width: 200px;
     align-self: center;
 }
 
@@ -199,11 +138,14 @@ body {
   background-repeat: no-repeat;
   background-size:cover;
   flex: 1;
-  height: 250px;
+  height: 270px;
   padding: 10px;
 }
 
 .divMap button {
+  border: 2.5px solid #2b7544;
+  border-radius: 10px;
+  color: #2b7544;
   width: 50px;
   height: 50px;
   
@@ -242,7 +184,21 @@ button {
 
 
 /* sidebar direita */
-.teamCard {
+
+.pokedexSidebar {
+  background-image: url(../assets/img/finalPokedex.png);
+  background-repeat: no-repeat;
+  background-size:cover;
+  
+  width: 15%;
+  height: calc(100vh - 70px);
+
+  padding: 15px;
+
+  overflow-y: auto;
+}
+
+.pokedexCard {
   background: #222;
   border: 1px solid red;
 
@@ -258,17 +214,25 @@ button {
   transition: 0.3s;
 }
 
-.teamCard:hover {
+.pokedexCard:hover {
   transform: scale(1.03);
   background: #333;
 }
 
-.teamCard img {
+.pokedexCard img {
   width: 50px;
   height: 50px;
 }
 
-.teamCard span {
+.pokedexCard span {
   color: white;
   font-weight: bold;
+}
+
+#H3life {
+color: #059434;
+}
+
+#H3damage {
+color: #450000;
 }

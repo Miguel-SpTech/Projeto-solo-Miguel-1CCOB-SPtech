@@ -1,5 +1,5 @@
 let pokemon = 0;
-let route = 1;
+var route = 1;
 
 
 let button1 = document.getElementById("runButton");
@@ -27,6 +27,14 @@ function rng(max,min) {
     return random;
 }
 
+async function updateData() {
+    document.getElementById("msm_qtdPokeball").innerHTML = `Quantidade de Pokebolas: ${player.qtdPokeball}`;
+    // for(let p = 1 ; p < 152; p++) {
+    //     document.getElementById(`pokedexN${p}`).src = ``;
+    // }
+    document.getElementById(`H3life`).innerHTML = `Life: ${player.life}`;
+    document.getElementById(`H3damage`).innerHTML = `Damage: ${player.damage}`;
+}
 
 
 async function findPokemon1() {
@@ -57,22 +65,22 @@ async function findPokemon1() {
 
 
 function run() {
-    window["route" + route]();
+    routes["route" + route]();
 }
 
 function battlePoke() {
 
     player.qtdPokeball = player.qtdPokeball + 1;
-    document.getElementById("msm_qtdPokeball").innerHTML = `Quantidade de Pokebolas: ${player.qtdPokeball}`
-    window["route" + route]();
+    updateData();
+    run();
 
 }
 
 function catchPoke() {
     
     player.qtdPokeball = player.qtdPokeball - 1;
-    document.getElementById("msm_qtdPokeball").innerHTML = `Quantidade de Pokebolas: ${player.qtdPokeball}`
-    window["route" + route]();
+    updateData();
+    run();
 
 }
 

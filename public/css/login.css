@@ -1,0 +1,163 @@
+/* LOGIN */
+*{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background-color: #000;
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .backBtn {
+        width: 70px;
+      height: 35px;
+
+      background: #111;
+      color: white;
+
+      border: 2px solid blue;
+      border-radius: 10px;
+
+      font-size: 18px;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+      position: absolute;
+    }
+    .backBtn:hover{
+      background: blue;
+      transform: scale(1.02);
+    }
+
+    /* FUNDO: login */
+    .divGeral {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 109%;
+        height: 100%;
+    }
+    
+    .divDireita {
+    width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+    }
+    
+    .divEsquerda {
+      background-image: linear-gradient(to left, rgba(0, 0, 0, 0.281), black), url(../assets/img/lunala.jpg);
+    background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+
+    /* CARD DE CADASTRO */
+    .loginBox{
+      width: 400px;
+      max-height: fit-content;
+
+      background: #111;
+
+      border: 2px solid blue;
+      border-radius: 15px;
+
+      padding: 35px;
+
+      box-shadow: 0 0 20px rgba(0, 0, 255, 0.4);
+
+      flex: 100;
+
+    }
+
+    .loginBox h1{
+      text-align: center;
+      margin-bottom: 30px;
+      color: white;
+    }
+
+    /* INPUTS */
+    .inputGroup{
+      display: flex;
+      flex-direction: column;
+
+      margin-bottom: 20px;
+    }
+
+    .inputGroup label{
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .inputGroup input{
+      height: 45px;
+
+      background: #1b1b1b;
+      color: white;
+
+      border: 2px solid #333;
+      border-radius: 10px;
+
+      padding: 10px;
+
+      outline: none;
+
+      transition: 0.3s;
+    }
+
+    .inputGroup input:focus{
+      border-color: blue;
+      box-shadow: 0 0 10px blue;
+    }
+
+    /* BOTÃO */
+    .loginBtn{
+      width: 100%;
+      height: 50px;
+
+      background: #111;
+      color: white;
+
+      border: 2px solid blue;
+      border-radius: 10px;
+
+      font-size: 18px;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+    .loginBtn:hover{
+      background: blue;
+      transform: scale(1.02);
+    }
+
+    /* TEXTO CADASTRO */
+    .registerText{
+      margin-top: 20px;
+      text-align: center;
+      color: #aaa;
+    }
+
+    .registerText a{
+      color: blue;
+      text-decoration: none;
+      font-weight: bold;
+    }

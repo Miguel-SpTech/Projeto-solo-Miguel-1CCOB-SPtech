@@ -1,7 +1,21 @@
+a {
+  text-decoration: none;
+    color: #FFF;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    align-self: center;
+}
+
+a:hover{
+      color: rgb(255,0,255);
+      padding-left: 5px;
+    }
+
 /* SIDEBAR */
     .sidebar{
       width: 250px;
-      border-right: 2px solid red;
+      border-right: 2px solid rgb(255,0,255);
       background-color: #111;
       padding: 20px;
     }
@@ -15,14 +29,16 @@
       list-style: none;
     }
 
-    .sidebar ul li{
+    .sidebar ul a{
+      text-decoration: none;
+      color: #FFF;
       margin-bottom: 15px;
       cursor: pointer;
       transition: 0.3s;
     }
 
-    .sidebar ul li:hover{
-      color: red;
+    .sidebar ul a:hover{
+      color: rgb(255,0,255);
       padding-left: 5px;
     }
 

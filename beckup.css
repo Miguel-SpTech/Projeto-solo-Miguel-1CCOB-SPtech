@@ -1,0 +1,22 @@
+.backBtnRegister {
+        width: 70px;
+      height: 35px;
+
+      background: #111;
+      color: white;
+
+      border: 2px solid red;
+      border-radius: 10px;
+
+      font-size: 18px;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+      position: absolute;
+    }
+    .backBtnRegister:hover{
+      background: red;
+      transform: scale(1.02);
+    }
