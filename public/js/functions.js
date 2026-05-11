@@ -14,7 +14,6 @@ let player = {
     "badges":0,
     "champeon":false,
     "qtdPokeball":10,
-
 }
 
 document.getElementById("msm_qtdPokeball").innerHTML = `Quantidade de Pokebolas: ${player.qtdPokeball}`;
