@@ -15,6 +15,18 @@
 
 
 /* CONTEÚDO PRINCIPAL */
+
+#hero {
+  background-image: url(../assets/img/indexIMG1.png);
+  background-repeat: no-repeat;
+  background-size:cover;
+  min-height: 80vh; display: flex; 
+  align-items: center; 
+  padding: 50px; 
+  position: relative; 
+  overflow: hidden; 
+
+}
     .container{
       display: flex;
       flex: 1;

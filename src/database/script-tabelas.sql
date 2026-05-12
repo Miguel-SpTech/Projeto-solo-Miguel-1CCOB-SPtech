@@ -1,67 +1,89 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+drop database individual_project_1;
+create database individual_project_1;
+use	individual_project_1;
 
-/*
-comandos para mysql server
-*/
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
-CREATE DATABASE aquatech;
+CREATE TABLE IF NOT EXISTS `individual_project_1`.`Usuário` (
+  `idUsuário` INT NOT NULL,
+  `Name` VARCHAR(45) NOT NULL,
+  `NickName` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `senha` VARCHAR(45) NOT NULL,
+  `FotoPerfil` CHAR(1) NOT NULL,
+  PRIMARY KEY (`idUsuário`),
+  UNIQUE INDEX `NickName_UNIQUE` (`NickName` ASC) VISIBLE,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
+ENGINE = InnoDB;
 
-USE aquatech;
+CREATE TABLE IF NOT EXISTS `individual_project_1`.`trofeus` (
+  `idtrofeu` INT NOT NULL,
+  `nome` VARCHAR(45) NULL,
+  `desc` VARCHAR(45) NULL,
+  PRIMARY KEY (`idtrofeu`))
+ENGINE = InnoDB;
 
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
-);
+CREATE TABLE IF NOT EXISTS `individual_project_1`.`relacionamento_trofeus` (
+  `Usuário_idUsuário` INT NOT NULL,
+  `trofeu_idtrofeu` INT NOT NULL,
+  PRIMARY KEY (`Usuário_idUsuário`, `trofeu_idtrofeu`),
+  INDEX `fk_relacionamento_trofeu1_idx` (`trofeu_idtrofeu` ASC) VISIBLE,
+  CONSTRAINT `fk_relacionamento_Usuário1`
+    FOREIGN KEY (`Usuário_idUsuário`)
+    REFERENCES `individual_project_1`.`Usuário` (`idUsuário`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_relacionamento_trofeu1`
+    FOREIGN KEY (`trofeu_idtrofeu`)
+    REFERENCES `individual_project_1`.`trofeus` (`idtrofeu`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
+CREATE TABLE IF NOT EXISTS `individual_project_1`.`pokemons` (
+  `id` INT NOT NULL,
+  `Name` VARCHAR(100) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
-);
+CREATE TABLE IF NOT EXISTS `individual_project_1`.`relacionamento_pokemon` (
+  `Usuário_idUsuário` INT NOT NULL,
+  `pokemons_id` INT NOT NULL,
+  PRIMARY KEY (`Usuário_idUsuário`, `pokemons_id`),
+  INDEX `fk_trelacionamentopokemon_pokemons1_idx` (`pokemons_id` ASC) VISIBLE,
+  CONSTRAINT `fk_trelacionamentopokemon_Usuário1`
+    FOREIGN KEY (`Usuário_idUsuário`)
+    REFERENCES `individual_project_1`.`Usuário` (`idUsuário`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_trelacionamentopokemon_pokemons1`
+    FOREIGN KEY (`pokemons_id`)
+    REFERENCES `individual_project_1`.`pokemons` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
+CREATE TABLE IF NOT EXISTS `individual_project_1`.`Treiners` (
+  `Usuário_idUsuário` INT NOT NULL,
+  `pokedex` INT NULL,
+  `catchMultiplier` INT NULL,
+  `TrainerDamage` INT NULL,
+  `TrainerLife` INT NULL,
+  `Badges` INT NULL,
+  `Elite` INT NULL,
+  `Champeon` VARCHAR(45) NULL,
+  `qtdPokeballs` INT NULL,
+  PRIMARY KEY (`Usuário_idUsuário`),
+  CONSTRAINT `fk_Treiners_Usuário1`
+    FOREIGN KEY (`Usuário_idUsuário`)
+    REFERENCES `individual_project_1`.`Usuário` (`idUsuário`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
-
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
-
-select * from usuario;
-
-alter table usuario 
-	add column cpf char(11);
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
