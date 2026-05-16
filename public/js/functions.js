@@ -27,39 +27,47 @@ function rng(max,min) {
     return random;
 }
 
-// async function updateData() {
-//     console.log("Update started");
+function updateData() {
+    console.log("Update Data started")
 
-//     document.getElementById("msm_qtdPokeball").innerHTML = `Quantidade de Pokebolas: ${player.qtdPokeball}`;
-//     document.getElementById(`H3life`).innerHTML = `Life: ${player.life}`;
-//     document.getElementById(`H3damage`).innerHTML = `Damage: ${player.damage}`;
+    document.getElementById("msm_qtdPokeball").innerHTML = `Quantidade de Pokebolas: ${player.qtdPokeball}`;
+    document.getElementById(`H3life`).innerHTML = `Life: ${player.life}`;
+    document.getElementById(`H3damage`).innerHTML = `Damage: ${player.damage}`;
+
+    console.log("Update Data finished")
+}
+
+setInterval(updateData, 1000);
+
+async function updatePokedex() {
+    console.log("Pokedex Update started");
     
-//     for(let p = 1 ; p < 152; p++) {
-//         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${p}`, 
-//         {method: 'GET', 
-//         headers: {
-//         'Content-Type': 'application/json'
-//         }
-//         });
+    for(let p = 1 ; p < 152; p++) {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${p}`, 
+        {method: 'GET', 
+        headers: {
+        'Content-Type': 'application/json'
+        }
+        });
 
-//     const data = await response.json();
+    const data = await response.json();
 
-//         if (pokemons[p].registered == true) {
-//             if(pokemons[p].shinyregistered == true) {
-//                 document.getElementById(`pokedexN${p}`).src = data.sprites.front_shiny;
-//                 // document.getElementById(`pokeNameN${p}`).innerHTML = pokemons[p].name;
-//             } else {
-//                 document.getElementById(`pokedexN${p}`).src = data.sprites.front_default;
-//                 // document.getElementById(`pokeNameN${p}`).innerHTML = pokemons[p].name;
-//             }
-//         };
+        if (pokemons[p].registered == true) {
+            if(pokemons[p].shinyregistered == true) {
+                document.getElementById(`pokedexN${p}`).src = data.sprites.front_shiny;
+                document.getElementById(`spanPokedexN${p}`).innerHTML = pokemons[p].name;
+            } else {
+                document.getElementById(`pokedexN${p}`).src = data.sprites.front_default;
+                document.getElementById(`spanPokedexN${p}`).innerHTML = pokemons[p].name;
+            }
+        };
         
-//     }
+    }
     
-//     console.log("Update finished");
-// }
+    console.log("Pokedex Update finished");
+}
 
-// setInterval(updateData, 10000);
+setInterval(updatePokedex, 10000);
 
 async function findPokemon1() {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`, 

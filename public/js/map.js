@@ -174,7 +174,7 @@ let routes = {
     document.getElementById("spanRoute").innerHTML = `Route 9`
     for (let i = 151 ; pokemons[i].id > 0 ; i--) {pokemons[i].canFind = false}
     for (let i = 151 ; pokemons[i].id > 0 ; i--) {
-        if (i == 16 || i == 19) {
+        if (i == 19 || i == 20 || i == 21 || i == 22 || i == 23 || i == 27) {
             pokemons[i].canFind = true
         }
     }
@@ -182,8 +182,12 @@ let routes = {
     
     pokemon = rng(100,1);
     console.log(pokemon)
-    if (pokemon < 50) {pokemon = 19}
-    else {pokemon = 16}
+    if (pokemon <= 30) {pokemon = 19}
+    else if(pokemon <= 60) {pokemon = 21}
+    else if(pokemon <= 72){pokemon = 23}
+    else if (pokemon<=85) {pokemon = 27}
+    else if (pokemon <=95){pokemon = 22}
+    else {pokemon = 20}
     
     findPokemon1()
 },
@@ -193,7 +197,7 @@ let routes = {
     document.getElementById("spanRoute").innerHTML = `Route 10`
     for (let i = 151 ; pokemons[i].id > 0 ; i--) {pokemons[i].canFind = false}
     for (let i = 151 ; pokemons[i].id > 0 ; i--) {
-        if (i == 16 || i == 19) {
+        if (i == 21 || i == 23 || i == 27 || i == 100) {
             pokemons[i].canFind = true
         }
     }
@@ -201,8 +205,10 @@ let routes = {
     
     pokemon = rng(100,1);
     console.log(pokemon)
-    if (pokemon < 50) {pokemon = 19}
-    else {pokemon = 16}
+    if (pokemon <=40) {pokemon = 21}
+    else if (pokemon<=55) {pokemon = 23}
+    else if(pokemon<=70) {pokemon = 27}
+    else {pokemon = 100}
     
     findPokemon1()
 },
