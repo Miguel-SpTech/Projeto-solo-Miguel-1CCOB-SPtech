@@ -123,11 +123,8 @@ function battlePoke() {
 
 function catchPoke() {
     
+    let actionCatch = rng(255,1).toFixed(0);
     player.qtdPokeball = player.qtdPokeball - 1;
     run();
 
-}
-
-function catchRate() {
-    let actionCatch = rng(255,1);
 }

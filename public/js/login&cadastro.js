@@ -8,6 +8,10 @@ let fotoperfil_register = document.getElementById("inp_register_fotoperfil");
 let email_login    = document.getElementById("inp_login_email");
 let password_login = document.getElementById("inp_login_password");
 
+//──  BACK BUTTON  ────────────────────────────────────────────────────────────
+function back() {
+    setTimeout(window.location.href="index.html",500)
+}
 
 // ─── LOGIN ────────────────────────────────────────────────────────────────────
 
