@@ -69,6 +69,8 @@ async function updatePokedex() {
 
 setInterval(updatePokedex, 10000);
 
+let isShiny = false;
+
 async function findPokemon1() {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`, 
         {method: 'GET', 
@@ -84,15 +86,17 @@ async function findPokemon1() {
 
     if (pokemons[pokemon].canFind == true) {
 
-        if (shinychance == 8192) {
+        if (shinychance >= 8192) {
+            isShiny = true;
             img1.src = data.sprites.front_shiny;
             
             pokemon_name.innerHTML = `${pokemons[pokemon].name} ✨`;
         } else {
+            isShiny = false;
             img1.src = data.sprites.front_default;
-            
+
             pokemon_name.innerHTML = `${pokemons[pokemon].name}`;
-        }
+        }            
     }
 }
 
@@ -122,9 +126,27 @@ function battlePoke() {
 }
 
 function catchPoke() {
-    
-    let actionCatch = rng(255,1).toFixed(0);
-    player.qtdPokeball = player.qtdPokeball - 1;
-    run();
+    if (player.qtdPokeball <= 0) {
+        alert("Você Não possui pokebolas!");
+        return
+    } else {
 
+        player.qtdPokeball = player.qtdPokeball - 1;
+        let actionCatch = rng(255,1).toFixed(0);
+
+        if (actionCatch <= pokemons[pokemon].catch_rate) {
+            alert(`${pokemons[pokemon].name} foi capturado com sucesso!`)
+            if (isShiny) {
+                pokemons[pokemon].registered = true;
+                pokemons[pokemon].shinyregistered = true;
+                run()
+            } else {
+                pokemons[pokemon].registered = true;
+                run()
+            }
+        } else {
+            alert(`${pokemons[pokemon].name} fugiu!`)
+            run()
+        }
+    }
 }

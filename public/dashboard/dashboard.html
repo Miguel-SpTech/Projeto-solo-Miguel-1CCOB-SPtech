@@ -107,17 +107,12 @@ body{
     </div>
 
     <!-- TROFÉUS -->
-    <div class="trophy-grid" id="trophyGrid"></div>
-
+    <div class="trophy-grid" id="trophyGrid">
+    </div>
+    
 </div>
 <script src="../js/trophies.js"></script>
 <script>
-
-/*
-    VETOR QUE VOCÊ JÁ POSSUI
-    true = desbloqueado
-    false = bloqueado
-*/
 
 let trophyGrid = document.getElementById("trophyGrid");
 
@@ -156,7 +151,8 @@ document.getElementById("progressBar").style.width = progress + "%";
 document.getElementById("progressText").innerText =
 `${unlockedCount}/${trophies.length} (${Math.floor(progress)}%)`;
 
-</script>
 
+
+</script>
 </body>
 </html>
