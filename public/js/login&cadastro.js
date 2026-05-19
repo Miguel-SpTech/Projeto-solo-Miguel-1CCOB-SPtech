@@ -76,6 +76,8 @@ function registerVerification() {
         validacao = false;
     }
 
+    console.log(validacao)
+
     return validacao;
 }
 
