@@ -9,7 +9,7 @@ body {
 /* LAYOUT GERAL */
 .layout {
   display: flex;
-  height: calc(100vh - 70px);
+  height: calc100vh;
 }
 
 /* CONTEÚDO CENTRAL */
@@ -27,8 +27,9 @@ body {
 
 
 .imgPoke {
-    height: 200px;
-    width: 200px;
+    padding-top: 3vh;
+    height: 120px;
+    width: 120px;
     align-self: center;
 }
 
@@ -191,7 +192,7 @@ button {
   background-size:cover;
   
   width: 15%;
-  height: calc(100vh - 70px);
+  
 
   padding: 15px;
 

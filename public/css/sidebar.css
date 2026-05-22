@@ -18,6 +18,7 @@ a:hover{
       border-right: 2px solid rgb(255,0,255);
       background-color: #111;
       padding: 20px;
+      position:static;
     }
 
     .sidebar h2{

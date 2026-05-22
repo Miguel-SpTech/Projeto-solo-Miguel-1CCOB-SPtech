@@ -1,158 +1,308 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sala de Troféus</title>
-<link rel="stylesheet" href="../css/dashboards.css">
-<link rel="stylesheet" href="../css/sidebar.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Progresso</title>
+    <link rel="stylesheet" href="../css/gameStyle.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <style>
+        /* ── Layout ── */
+        .dash-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
 
-<style>
+        h1 { margin-bottom: 6px; font-size: 28px; }
+        .subtitulo { color: #aaa; margin-bottom: 30px; font-size: 14px; }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial;
-}
+        /* ── Cards de stats ── */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin-bottom: 36px;
+        }
 
-body{
-    background-color: #111;
-    color: white;
-    padding: 30px;
-}
+        .stat-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+        }
 
-/* CONTAINER PRINCIPAL */
-.trophy-room{
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-}
+        .stat-card .valor {
+            font-size: 32px;
+            font-weight: bold;
+            color: rgb(255,0,255);
+        }
 
-/* BARRA DE PROGRESSO */
-.progress-container{
-    width: 100%;
-    height: 40px;
-    background-color: #2b2b2b;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 2px solid #555;
-    margin-bottom: 30px;
-    position: relative;
-}
+        .stat-card .label {
+            font-size: 13px;
+            color: #aaa;
+            margin-top: 4px;
+        }
 
-.progress-bar{
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, gold, orange);
-    transition: 0.5s;
-}
+        /* ── Seção de troféus ── */
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+        }
 
-.progress-text{
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: bold;
-}
+        .trofeus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 14px;
+            margin-bottom: 40px;
+        }
 
-/* GRID DOS TROFÉUS */
-.trophy-grid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
+        .trofeu-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            opacity: 0.35;
+            transition: opacity 0.3s;
+        }
 
-/* CARD */
-.trophy{
-    height: 140px;
-    background-color: #1e1e1e;
-    border: 2px solid #444;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    transition: 0.3s;
-}
+        .trofeu-card.unlocked {
+            opacity: 1;
+            border-color: #555;
+        }
 
-/* TROFÉU DESBLOQUEADO */
-.trophy.unlocked{
-    border-color: gold;
-    box-shadow: 0 0 15px gold;
-}
+        /* cores por tipo de troféu */
+        .trofeu-card.unlocked.type-1 { 
+            border: 4px solid #cd7f32;
+            box-shadow: 0px 0px 12px 1px #f8a551; 
+            margin: 1vh; 
+        } /* bronze */
+        .trofeu-card.unlocked.type-2 {
+            border: 4px solid #c0c0c0; 
+            box-shadow: 0px 0px 12px 1px #e6e6e6; 
+            margin: 1vh; 
+        } /* prata  */
+        .trofeu-card.unlocked.type-3 { 
+            border: 4px solid #ffd700; 
+            box-shadow: 0px 0px 12px 1px #ffe65b; 
+            margin: 1vh; 
+        } /* ouro   */
+        .trofeu-card.unlocked.type-4 {
+            border: 4px solid rgb(67, 104, 128);
+            box-shadow: 0px 0px 12px 1px rgb(127, 198, 246); 
+            margin: 1vh; 
+        } /* platina */
 
-/* ÍCONE */
-.trophy-icon{
-    font-size: 40px;
-    margin-bottom: 10px;
-}
+        .trofeu-icon { font-size: 28px; }
+        .trofeu-icon img {
+            height: 45px;
+            width: 45px;
+        }
 
-.trophy-name{
-    font-size: 18px;
-}
+        .trofeu-info .trofeu-nome {
+            font-size: 14px;
+            font-weight: bold;
+        }
 
-</style>
+        .trofeu-info .trofeu-desc {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 3px;
+        }
+
+        .trofeu-card:not(.unlocked) .trofeu-nome { color: #555; }
+        .trofeu-card:not(.unlocked) .trofeu-desc { color: #444; }
+
+        /* ── Barra de progresso da pokédex ── */
+        .progress-wrap {
+            margin-bottom: 36px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 6px;
+        }
+
+        .progress-bar-bg {
+            background: #222;
+            border-radius: 20px;
+            height: 14px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: rgb(255,0,255);
+            border-radius: 20px;
+            transition: width 0.6s ease;
+        }
+
+        /* ── Botão sair ── */
+        .btn-sair {
+            background: transparent;
+            border: 1px solid rgb(255,0,255);
+            color: rgb(255,0,255);
+            padding: 8px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .btn-sair:hover { background: rgb(255,0,255); color: #000; }
+    </style>
 </head>
 <body>
 
-<div class="trophy-room">
+<div class="layout">
 
-    <!-- BARRA -->
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-        <div class="progress-text" id="progressText">0%</div>
-    </div>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>Menu</h2>
+        <a href="../game.html">← Voltar ao Jogo</a><br><br>
+        <a href="../dashboard/dashboard.html">Progresso</a><br><br>
+        <br><br><br>
+        <button class="btn-sair" onclick="sair()">Sair</button>
+    </aside>
 
-    <!-- TROFÉUS -->
-    <div class="trophy-grid" id="trophyGrid">
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="dash-content">
+
+        <h1>Olá, <span id="spanNickname">Treinador</span>!</h1>
+        <p class="subtitulo">Aqui está o seu progresso em Kanto</p>
+
+        <!-- STATS -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="valor" id="statPokedex">0</div>
+                <div class="label">Pokémons registrados</div>
+            </div>
+            <div class="stat-card">
+                <div class="valor" id="statPokeball">0</div>
+                <div class="label">Pokébolas</div>
+            </div>
+            <div class="stat-card">
+                <div class="valor" id="statDamage">0</div>
+                <div class="label">Dano</div>
+            </div>
+            <div class="stat-card">
+                <div class="valor" id="statLife">0</div>
+                <div class="label">Vida</div>
+            </div>
+            <div class="stat-card">
+                <div class="valor" id="statBadges">0</div>
+                <div class="label">Badges</div>
+            </div>
+            <div class="stat-card">
+                <div class="valor" id="statTrofeus">0</div>
+                <div class="label">Troféus desbloqueados</div>
+            </div>
+        </div>
+
+        <!-- BARRA DE PROGRESSO DA POKÉDEX -->
+        <div class="progress-wrap">
+            <div class="progress-label">
+                <span>Pokédex</span>
+                <span><span id="progressNum">0</span> / 151</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- TROFÉUS -->
+        <div class="section-title">🏆 Sala de Troféus</div>
+        <div class="trofeus-grid" id="trofeusGrid">
+            <!-- preenchido pelo JS -->
+        </div>
+
     </div>
-    
 </div>
+
+<!-- trophies.js precisa vir antes do script inline -->
 <script src="../js/trophies.js"></script>
 <script>
+    // ── Ícone por tipo de troféu ──────────────────────────────────────────────
+    const iconePorTipo = { 1: "../assets/img/trofeu1", 2: "../assets/img/trofeu2", 3: "../assets/img/trofeu3", 4: "../assets/img/trofeu4" };
 
-let trophyGrid = document.getElementById("trophyGrid");
+    // ── Pega o idusuario salvo no login ───────────────────────────────────────
+    const idusuario = localStorage.getItem("idusuario");
+    
 
-let unlockedCount = 0;
-
-/* CRIA OS TROFÉUS */
-trophies.forEach(trophy => {
-
-    let div = document.createElement("div");
-    div.classList.add("trophy");
-
-    if(trophy.unlocked){
-        div.classList.add("unlocked");
-        unlockedCount++;
+    // ── Exibe o nickname ──────────────────────────────────────────────────────
+    const nickSalvo = localStorage.getItem("nickName");
+    if (nickSalvo) {
+        document.getElementById("spanNickname").textContent = nickSalvo;
     }
 
-    div.innerHTML = `
-        <div class="trophy-icon">
-            ${trophy.unlocked ? "🏆" : "🔒"}
-        </div>
+    // ── Carrega o Treiner do banco ─────────────────────────────────────────────
+    fetch(`/treiners/${idusuario}`)
+        .then(r => r.json())
+        .then(function(treiner) {
+            document.getElementById("statPokedex").textContent  = treiner.pokedex;
+            document.getElementById("statPokeball").textContent = treiner.qtdPokeballs;
+            document.getElementById("statDamage").textContent   = treiner.TrainerDamage;
+            document.getElementById("statLife").textContent     = treiner.TrainerLife;
+            document.getElementById("statBadges").textContent   = treiner.Badges;
 
-        <div class="trophy-name">
-            ${trophy.name}
-        </div>
-    `;
+            // Barra de progresso
+            const pct = ((treiner.pokedex / 151) * 100).toFixed(1);
+            document.getElementById("progressNum").textContent      = treiner.pokedex;
+            document.getElementById("progressFill").style.width     = pct + "%";
+        })
+        .catch(e => console.log("Erro ao carregar treiner:", e));
 
-    trophyGrid.appendChild(div);
+    // ── Carrega os troféus do banco e renderiza todos os 52 ───────────────────
+    fetch(`/trofeus/${idusuario}`)
+        .then(r => r.json())
+        .then(function(trofeusDesbloqueados) {
 
-});
+            // Marca no array local os que o banco retornou
+            trofeusDesbloqueados.forEach(function(t) {
+                if (trophies[t.idtrofeu - 1]) {
+                    trophies[t.idtrofeu - 1].unlocked = true;
+                }
+            });
 
-/* CALCULA PROGRESSO */
-let progress = (unlockedCount / trophies.length) * 100;
+            // Atualiza o contador de troféus desbloqueados
+            const totalUnlocked = trophies.filter(t => t.unlocked).length;
+            document.getElementById("statTrofeus").textContent = totalUnlocked;
 
-document.getElementById("progressBar").style.width = progress + "%";
+            // Renderiza todos os cards
+            const grid = document.getElementById("trofeusGrid");
+            grid.innerHTML = "";
 
-document.getElementById("progressText").innerText =
-`${unlockedCount}/${trophies.length} (${Math.floor(progress)}%)`;
+            trophies.forEach(function(t) {
+                const card = document.createElement("div");
+                card.className = `trofeu-card${t.unlocked ? " unlocked type-" + t.type : ""}`;
 
+                card.innerHTML = `
+                    <div class="trofeu-icon">${t.unlocked ? `<img src="../assets/img/trofeu${t.type}.png" alt="">` : "🔒"}</div>
+                    <div class="trofeu-info">
+                        <div class="trofeu-nome">${t.name}</div>
+                        <div class="trofeu-desc">${t.description}</div>
+                    </div>
+                `;
 
+                grid.appendChild(card);
+            });
+        })
+        .catch(e => console.log("Erro ao carregar troféus:", e));
 
+    // ── Logout ────────────────────────────────────────────────────────────────
+    function sair() {
+        localStorage.clear();
+        window.location.href = "../login.html";
+    }
 </script>
+
 </body>
 </html>
