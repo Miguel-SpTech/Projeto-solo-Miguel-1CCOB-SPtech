@@ -1,0 +1,674 @@
+  <!-- SIDEBAR DIREITA -->
+   <style>
+
+    /* sidebar direita */
+
+.pokedexSidebar {
+  background-image: url(../assets/img/finalPokedex.png);
+  background-repeat: no-repeat;
+  background-size:cover;
+  
+  width: 15%;
+  
+
+  padding: 15px;
+
+  overflow-y: auto;
+}
+
+.pokedexCard {
+  background: #222;
+  border: 1px solid red;
+
+  border-radius: 10px;
+
+  padding: 10px;
+  margin-bottom: 15px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  transition: 0.3s;
+}
+
+.pokedexCard:hover {
+  transform: scale(1.03);
+  background: #333;
+}
+
+.pokedexCard img {
+  width: 100px;
+  height: 100px;
+}
+
+.pokedexCard span {
+  color: white;
+  font-weight: bold;
+}
+
+#H3life {
+color: #059434;
+}
+
+#H3damage {
+color: #450000;
+}
+
+
+   </style>
+
+   
+    <aside class="pokedexSidebar">
+
+      <br><br><br><br><br><br><br><br>
+      <h3 id="H3life">Life:</h3>
+      <h3 id="H3damage">Damage:</h3>
+      <center><h2>Pokedex</h2></center>
+      
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN1" alt="">
+        <span id="spanPokedexN1">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN2" alt="">
+        <span id="spanPokedexN2">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN3" alt="">
+        <span id="spanPokedexN3">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN4" alt="">
+        <span id="spanPokedexN4">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN5" alt="">
+        <span id="spanPokedexN5">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN6" alt="">
+        <span id="spanPokedexN6">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN7" alt="">
+        <span id="spanPokedexN7">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN8" alt="">
+        <span id="spanPokedexN8">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN9" alt="">
+        <span id="spanPokedexN9">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN10" alt="">
+        <span id="spanPokedexN10">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN11" alt="">
+        <span id="spanPokedexN11">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN12" alt="">
+        <span id="spanPokedexN12">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN13" alt="">
+        <span id="spanPokedexN13">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN14" alt="">
+        <span id="spanPokedexN14">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN15" alt="">
+        <span id="spanPokedexN15">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN16" alt="">
+        <span id="spanPokedexN16">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN17" alt="">
+        <span id="spanPokedexN17">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN18" alt="">
+        <span id="spanPokedexN18">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN19" alt="">
+        <span id="spanPokedexN19">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN20" alt="">
+        <span id="spanPokedexN20">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN21" alt="">
+        <span id="spanPokedexN21">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN22" alt="">
+        <span id="spanPokedexN22">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN23" alt="">
+        <span id="spanPokedexN23">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN24" alt="">
+        <span id="spanPokedexN24">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN25" alt="">
+        <span id="spanPokedexN25">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN26" alt="">
+        <span id="spanPokedexN26">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN27" alt="">
+        <span id="spanPokedexN27">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN28" alt="">
+        <span id="spanPokedexN28">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN29" alt="">
+        <span id="spanPokedexN29">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN30" alt="">
+        <span id="spanPokedexN30">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN31" alt="">
+        <span id="spanPokedexN31">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN32" alt="">
+        <span id="spanPokedexN32">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN33" alt="">
+        <span id="spanPokedexN33">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN34" alt="">
+        <span id="spanPokedexN34">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN35" alt="">
+        <span id="spanPokedexN35">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN36" alt="">
+        <span id="spanPokedexN36">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN37" alt="">
+        <span id="spanPokedexN37">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN38" alt="">
+        <span id="spanPokedexN38">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN39" alt="">
+        <span id="spanPokedexN39">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN40" alt="">
+        <span id="spanPokedexN40">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN41" alt="">
+        <span id="spanPokedexN41">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN42" alt="">
+        <span id="spanPokedexN42">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN43" alt="">
+        <span id="spanPokedexN43">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN44" alt="">
+        <span id="spanPokedexN44">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN45" alt="">
+        <span id="spanPokedexN45">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN46" alt="">
+        <span id="spanPokedexN46">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN47" alt="">
+        <span id="spanPokedexN47">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN48" alt="">
+        <span id="spanPokedexN48">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN49" alt="">
+        <span id="spanPokedexN49">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN50" alt="">
+        <span id="spanPokedexN50">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN51" alt="">
+        <span id="spanPokedexN51">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN52" alt="">
+        <span id="spanPokedexN52">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN53" alt="">
+        <span id="spanPokedexN53">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN54" alt="">
+        <span id="spanPokedexN54">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN55" alt="">
+        <span id="spanPokedexN55">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN56" alt="">
+        <span id="spanPokedexN56">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN57" alt="">
+        <span id="spanPokedexN57">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN58" alt="">
+        <span id="spanPokedexN58">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN59" alt="">
+        <span id="spanPokedexN59">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN60" alt="">
+        <span id="spanPokedexN60">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN61" alt="">
+        <span id="spanPokedexN61">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN62" alt="">
+        <span id="spanPokedexN62">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN63" alt="">
+        <span id="spanPokedexN63">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN64" alt="">
+        <span id="spanPokedexN64">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN65" alt="">
+        <span id="spanPokedexN65">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN66" alt="">
+        <span id="spanPokedexN66">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN67" alt="">
+        <span id="spanPokedexN67">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN68" alt="">
+        <span id="spanPokedexN68">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN69" alt="">
+        <span id="spanPokedexN69">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN70" alt="">
+        <span id="spanPokedexN70">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN71" alt="">
+        <span id="spanPokedexN71">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN72" alt="">
+        <span id="spanPokedexN72">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN73" alt="">
+        <span id="spanPokedexN73">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN74" alt="">
+        <span id="spanPokedexN74">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN75" alt="">
+        <span id="spanPokedexN75">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN76" alt="">
+        <span id="spanPokedexN76">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN77" alt="">
+        <span id="spanPokedexN77">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN78" alt="">
+        <span id="spanPokedexN78">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN79" alt="">
+        <span id="spanPokedexN79">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN80" alt="">
+        <span id="spanPokedexN80">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN81" alt="">
+        <span id="spanPokedexN81">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN82" alt="">
+        <span id="spanPokedexN82">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN83" alt="">
+        <span id="spanPokedexN83">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN84" alt="">
+        <span id="spanPokedexN84">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN85" alt="">
+        <span id="spanPokedexN85">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN86" alt="">
+        <span id="spanPokedexN86">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN87" alt="">
+        <span id="spanPokedexN87">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN88" alt="">
+        <span id="spanPokedexN88">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN89" alt="">
+        <span id="spanPokedexN89">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN90" alt="">
+        <span id="spanPokedexN90">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN91" alt="">
+        <span id="spanPokedexN91">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN92" alt="">
+        <span id="spanPokedexN92">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN93" alt="">
+        <span id="spanPokedexN93">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN94" alt="">
+        <span id="spanPokedexN94">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN95" alt="">
+        <span id="spanPokedexN95">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN96" alt="">
+        <span id="spanPokedexN96">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN97" alt="">
+        <span id="spanPokedexN97">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN98" alt="">
+        <span id="spanPokedexN98">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN99" alt="">
+        <span id="spanPokedexN99">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN100" alt="">
+        <span id="spanPokedexN100">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN101" alt="">
+        <span id="spanPokedexN101">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN102" alt="">
+        <span id="spanPokedexN102">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN103" alt="">
+        <span id="spanPokedexN103">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN104" alt="">
+        <span id="spanPokedexN104">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN105" alt="">
+        <span id="spanPokedexN105">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN106" alt="">
+        <span id="spanPokedexN106">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN107" alt="">
+        <span id="spanPokedexN107">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN108" alt="">
+        <span id="spanPokedexN108">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN109" alt="">
+        <span id="spanPokedexN109">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN110" alt="">
+        <span id="spanPokedexN110">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN111" alt="">
+        <span id="spanPokedexN111">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN112" alt="">
+        <span id="spanPokedexN112">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN113" alt="">
+        <span id="spanPokedexN113">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN114" alt="">
+        <span id="spanPokedexN114">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN115" alt="">
+        <span id="spanPokedexN115">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN116" alt="">
+        <span id="spanPokedexN116">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN117" alt="">
+        <span id="spanPokedexN117">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN118" alt="">
+        <span id="spanPokedexN118">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN119" alt="">
+        <span id="spanPokedexN119">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN120" alt="">
+        <span id="spanPokedexN120">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN121" alt="">
+        <span id="spanPokedexN121">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN122" alt="">
+        <span id="spanPokedexN122">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN123" alt="">
+        <span id="spanPokedexN123">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN124" alt="">
+        <span id="spanPokedexN124">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN125" alt="">
+        <span id="spanPokedexN125">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN126" alt="">
+        <span id="spanPokedexN126">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN127" alt="">
+        <span id="spanPokedexN127">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN128" alt="">
+        <span id="spanPokedexN128">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN129" alt="">
+        <span id="spanPokedexN129">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN130" alt="">
+        <span id="spanPokedexN130">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN131" alt="">
+        <span id="spanPokedexN131">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN132" alt="">
+        <span id="spanPokedexN132">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN133" alt="">
+        <span id="spanPokedexN133">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN134" alt="">
+        <span id="spanPokedexN134">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN135" alt="">
+        <span id="spanPokedexN135">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN136" alt="">
+        <span id="spanPokedexN136">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN137" alt="">
+        <span id="spanPokedexN137">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN138" alt="">
+        <span id="spanPokedexN138">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN139" alt="">
+        <span id="spanPokedexN139">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN140" alt="">
+        <span id="spanPokedexN140">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN141" alt="">
+        <span id="spanPokedexN141">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN142" alt="">
+        <span id="spanPokedexN142">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN143" alt="">
+        <span id="spanPokedexN143">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN144" alt="">
+        <span id="spanPokedexN144">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN145" alt="">
+        <span id="spanPokedexN145">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN146" alt="">
+        <span id="spanPokedexN146">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN147" alt="">
+        <span id="spanPokedexN147">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN148" alt="">
+        <span id="spanPokedexN148">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN149" alt="">
+        <span id="spanPokedexN149">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN150" alt="">
+        <span id="spanPokedexN150">???</span>
+      </div>
+      <div class="pokedexCard">
+        <img src="../public/assets/img/dots.png" id="pokedexN151" alt="">
+        <span id="spanPokedexN151">???</span>
+      </div>
+
+    </aside>

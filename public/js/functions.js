@@ -87,13 +87,11 @@ function carregarPokedexDoBanco() {
 }
  
 // ──────────────────────────────────────────────────────────────────────────────
-// Busca os troféus já desbloqueados e marca unlocked = true no array local
 function carregarTrofeusDoBanco() {
     fetch(`/trofeus/${idusuario}`)
         .then(function(resposta) { return resposta.json(); })
         .then(function(trofeusDesbloqueados) {
             trofeusDesbloqueados.forEach(function(t) {
-                // O id do banco bate com o id do array trophies (index = id - 1)
                 if (trophies[t.idtrofeu - 1]) {
                     trophies[t.idtrofeu - 1].unlocked = true;
                 }
@@ -180,17 +178,14 @@ function catchPoke() {
             pokemons[pokemon].registered = true;
             player.pokedex += 1;
  
-            // 2. Salva o pokemon no banco
+
             registrarPokemonNoBanco(pokemon);
  
-            // 3. Verifica troféus de colecionador
-            verificarTrofeusColecionador();
         }
  
-        // 4. Salva o treiner (pokedex e qtdPokeball atualizados)
         salvarTreiner();
     } else {
-        // Falhou: salva só a perda da pokeball
+
         salvarTreiner();
     }
  
@@ -209,24 +204,6 @@ function registrarPokemonNoBanco(idPokemon) {
     })
     .then(function() { console.log(`Pokemon ${idPokemon} registrado no banco.`); })
     .catch(function(erro) { console.log("Erro ao registrar pokemon:", erro); });
-}
- 
-// ─── Verifica e desbloqueia troféus de colecionador ──────────────────────────
-function verificarTrofeusColecionador() {
-    const metas = [
-        { trofeuId: 41, meta: 10  },
-        { trofeuId: 42, meta: 30  },
-        { trofeuId: 43, meta: 60  },
-        { trofeuId: 44, meta: 100 },
-        { trofeuId: 45, meta: 125 },
-        { trofeuId: 46, meta: 150 },
-    ];
- 
-    metas.forEach(function(item) {
-        if (player.pokedex >= item.meta && !trophies[item.trofeuId - 1].unlocked) {
-            desbloquearTrofeuNoBanco(item.trofeuId);
-        }
-    });
 }
  
 // ─── Desbloqueia um troféu no banco e no array local ─────────────────────────
@@ -257,10 +234,10 @@ async function findPokemon1() {
  
     if (pokemons[pokemon].canFind == true) {
         if (shinychance >= 8192) {
-            img1.src          = data.sprites.front_shiny;
+            img1.src          = data.sprites.versions['generation-v']['black-white'].animated.front_shiny;
             pokemon_name.innerHTML = `${pokemons[pokemon].name} ✨`;
         } else {
-            img1.src          = data.sprites.front_default;
+            img1.src          = data.sprites.versions['generation-v']['black-white'].animated.front_default;
             pokemon_name.innerHTML = `${pokemons[pokemon].name}`;
         }
     }
