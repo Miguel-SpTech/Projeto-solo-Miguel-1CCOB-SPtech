@@ -15,10 +15,11 @@ var HOST_APP  = process.env.APP_HOST;
 var app = express();
 
 // ─── Rotas ────────────────────────────────────────────────────────────────────
-var indexRouter   = require("./src/routes/index");
-var usuarioRouter = require("./src/routes/usuarios");
-var pokemonRouter = require("./src/routes/pokemons");
-var trofeusRouter = require("./src/routes/trofeus");
+var indexRouter    = require("./src/routes/index");
+var usuarioRouter  = require("./src/routes/usuarios");
+var pokemonRouter  = require("./src/routes/pokemons");
+var trofeusRouter  = require("./src/routes/trofeus");
+var treinersRouter = require("./src/routes/treiners");
 
 // ─── Middlewares ──────────────────────────────────────────────────────────────
 app.use(express.json());
@@ -27,10 +28,11 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
 // ─── Endereços da API ─────────────────────────────────────────────────────────
-app.use("/",         indexRouter);
-app.use("/usuarios", usuarioRouter);
-app.use("/pokemons", pokemonRouter);
-app.use("/trofeus",  trofeusRouter);
+app.use("/",          indexRouter);
+app.use("/usuarios",  usuarioRouter);
+app.use("/pokemons",  pokemonRouter);
+app.use("/trofeus",   trofeusRouter);
+app.use("/treiners",  treinersRouter);
 
 // ─── Iniciar servidor ─────────────────────────────────────────────────────────
 app.listen(PORTA_APP, function () {
@@ -42,7 +44,7 @@ app.listen(PORTA_APP, function () {
     #######  ##       ##  ##            ##  ##   ##  ##     ##     ##  ##            ##  ##     ##      ##     
     ### ###  ##       ##  ##            ## ##    ##  ##     ##     ##  ##             ####      ##     ##      
     ##   ##  ######   #####             ####     ##  ##     ##     ##  ##              ##      ####    ######  
-    \n\n\n                                                                                                 
+    \n\n\n
     Servidor rodando! Acesse: http://${HOST_APP}:${PORTA_APP} \n\n
     Ambiente: ${process.env.AMBIENTE_PROCESSO} \n\n`);
 });

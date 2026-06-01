@@ -1,20 +1,22 @@
-// ─────────────────────────────────────────────────────────────────────────────
+// ─── Sessão ───────────────────────────────────────────────────────────────────
 let idusuario = localStorage.getItem("idusuario");
-if (!idusuario) {
-    window.location.href = "login.html";
-}
- 
-// ──────────────────────────────────────────────────────────────────────────────
+if (!idusuario) { window.location.href = "login.html"; }
+
+// ─── Elementos do DOM ────────────────────────────────────────────────────────
 let button1      = document.getElementById("runButton");
 let img1         = document.getElementById("img_1");
 let pokemon_name = document.getElementById("pokemonName");
- 
-let pokemon  = 0;
-var route    = 1;
-let life = 0;
-let lifeMax = 0;
- 
-// ──────────────────────────────────────────────────────────────────────────────
+
+// ─── Estado do jogo ──────────────────────────────────────────────────────────
+let pokemon      = 0;
+var route        = 1;
+
+// BUG 1 CORRIGIDO: havia duas variáveis para a vida do inimigo: "life/lifeMax" e "pokelife"
+// O battlePoke usava "pokelife" mas o findPokemon1 definia "life" — variáveis diferentes!
+// Agora existe só uma: pokelife (e pokelifeMax para calcular a barra em %)
+let pokelife    = 0;
+let pokelifeMax = 0;
+
 let player = {
     pokedex:         0,
     catchMultiplier: 1,
@@ -22,13 +24,18 @@ let player = {
     life:            10,
     badges:          0,
     elite:           0,
-    champeon:        false,
+    champeon:        'false',
     qtdPokeball:     10,
 };
- 
-// ────────────────────────────────────────────────────────────────────────────
+
+// ─── AO CARREGAR: busca Treiner do banco ─────────────────────────────────────
 fetch(`/treiners/${idusuario}`)
-    .then(function(resposta) { return resposta.json(); })
+    .then(function(resposta) {
+        // BUG 2 CORRIGIDO: sem verificar resposta.ok, se der 404 o código
+        // tentava fazer .json() de uma mensagem de texto e quebrava silenciosamente
+        if (!resposta.ok) throw new Error("Treiner não encontrado: " + resposta.status);
+        return resposta.json();
+    })
     .then(function(treiner) {
         player.pokedex         = treiner.pokedex;
         player.catchMultiplier = treiner.catchMultiplier;
@@ -38,20 +45,20 @@ fetch(`/treiners/${idusuario}`)
         player.elite           = treiner.Elite;
         player.champeon        = treiner.Champeon;
         player.qtdPokeball     = treiner.qtdPokeballs;
- 
-        // ────────────────────────────────────────────────────────────────────
+
         carregarPokedexDoBanco();
         updateData();
         console.log("Treiner carregado:", treiner);
     })
     .catch(function(erro) {
         console.log("Erro ao carregar treiner:", erro);
+        alert("Erro ao carregar dados do jogador. Verifique se o servidor está rodando.");
     });
- 
-// ──────────────────────────────────────────────────────────────────────────────
+
+// ─── Salva o estado do jogador no banco ──────────────────────────────────────
 function salvarTreiner() {
     fetch("/treiners/atualizar", {
-        method: "POST",
+        method:  "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             idusuario:       idusuario,
@@ -65,277 +72,202 @@ function salvarTreiner() {
             qtdPokeballs:    player.qtdPokeball
         })
     })
-    .then(function() { console.log("Treiner salvo no banco."); })
+    .then(function() { console.log("Treiner salvo."); })
     .catch(function(erro) { console.log("Erro ao salvar treiner:", erro); });
 }
- 
-// ───────────────────────────────────────────────────────────────────────────────
-// Busca os pokémons já capturados e marca registered = true no array local
+
+// ─── Carrega pokédex do banco e marca registered no array local ───────────────
 function carregarPokedexDoBanco() {
     fetch(`/pokemons/${idusuario}`)
         .then(function(resposta) { return resposta.json(); })
-        .then(function(pokemonsCaptured) {
-            pokemonsCaptured.forEach(function(poke) {
+        .then(function(lista) {
+            lista.forEach(function(poke) {
                 if (pokemons[poke.id]) {
                     pokemons[poke.id].registered = true;
                 }
             });
-            console.log("Pokédex carregada:", pokemonsCaptured.length, "pokémons registrados.");
+            console.log("Pokédex carregada:", lista.length, "pokémons.");
         })
-        .catch(function(erro) {
-            console.log("Erro ao carregar pokédex:", erro);
-        });
+        .catch(function(erro) { console.log("Erro ao carregar pokédex:", erro); });
 }
- 
-// ──────────────────────────────────────────────────────────────────────────────
+
+// ─── Carrega troféus do banco e marca unlocked no array local ─────────────────
 function carregarTrofeusDoBanco() {
     fetch(`/trofeus/${idusuario}`)
         .then(function(resposta) { return resposta.json(); })
-        .then(function(trofeusDesbloqueados) {
-            trofeusDesbloqueados.forEach(function(t) {
+        .then(function(lista) {
+            lista.forEach(function(t) {
                 if (trophies[t.idtrofeu - 1]) {
                     trophies[t.idtrofeu - 1].unlocked = true;
                 }
             });
-            console.log("Troféus carregados:", trofeusDesbloqueados.length, "desbloqueados.");
+            console.log("Troféus carregados:", lista.length, "desbloqueados.");
         })
-        .catch(function(erro) {
-            console.log("Erro ao carregar troféus:", erro);
-        });
+        .catch(function(erro) { console.log("Erro ao carregar troféus:", erro); });
 }
- 
-// ─────────────────────────────────────────────────────────────────────────
 
-// ──────────────────────────────────────────────────────────────────
-function rng(max, min) {
-    let random = Math.random() * (max - min + 1) + min;
-    return random;
+// ─── Atualiza os textos na sidebar ────────────────────────────────────────────
+function updateData() {
+    document.getElementById("msm_qtdPokeball").innerHTML = `Pokebolas: ${player.qtdPokeball}`;
+    document.getElementById("H3life").innerHTML          = `Life: ${player.life}`;
+    document.getElementById("H3damage").innerHTML        = `Damage: ${player.damage}`;
 }
- 
+setInterval(updateData, 1000);
+
+// ─── Auxiliares ───────────────────────────────────────────────────────────────
+function rng(max, min) {
+    return Math.random() * (max - min + 1) + min;
+}
+
 function run() {
     routes["route" + route]();
 }
- 
+
+// ─── FIGHT ────────────────────────────────────────────────────────────────────
 function battlePoke() {
-    if (pokelife > 0) {
-        pokelife -= player.damage;
-        document.getElementById("life").style.width = pokelife + "%";
-    }
- 
+    if (pokemon === 0 || pokelife <= 0) return;
+
+    // Aplica o dano do jogador
+    pokelife -= player.damage;
+    pokelife  = Math.max(0, pokelife);
+
+    // BUG 3 CORRIGIDO: o código antigo tentava getElementById("life") que não existe
+    // O elemento correto no HTML é id="hpFill"
+    // BUG 4 CORRIGIDO: a largura deve ser calculada em % relativa ao HP máximo,
+    // não o valor absoluto de pokelife (que podia passar de 100 e quebrar a barra)
+    var hpPercent = (pokelife / pokelifeMax) * 100;
+    var hpFill = document.getElementById("hpFill");
+    var hpText = document.getElementById("hpText");
+    if (hpFill) hpFill.style.width = hpPercent + "%";
+    if (hpText) hpText.innerHTML   = `${Math.round(pokelife)} / ${pokelifeMax}`;
+
     if (pokelife <= 0) {
+        // Venceu: ganha pokeball e avança
         player.qtdPokeball += 1;
         salvarTreiner();
         run();
     } else {
-        player.life -= pokemons[pokemon].damage;
+        // Leva dano de volta
+        player.life = Math.max(0, player.life - pokemons[pokemon].damage);
     }
 }
- 
+
+// ─── BAG ─────────────────────────────────────────────────────────────────────
 function catchPoke() {
-    if (player.qtdPokeball <= 0) {
-        alert("Sem pokebolas!");
-        return;
-    }
- 
-    let actionCatch   = rng(255, 1).toFixed(0);
+    if (pokemon === 0) return;
+    if (player.qtdPokeball <= 0) { alert("Sem pokebolas!"); return; }
+
     player.qtdPokeball -= 1;
- 
-    // ── Captura bem-sucedida ──────────────────────────────────────────────────
+    let actionCatch = rng(255, 1).toFixed(0);
+
     if (actionCatch <= pokemons[pokemon].catch_rate * player.catchMultiplier) {
- 
         if (!pokemons[pokemon].registered) {
-            // 1. Marca localmente
             pokemons[pokemon].registered = true;
             player.pokedex += 1;
- 
-
             registrarPokemonNoBanco(pokemon);
- 
+            verificarTrofeusColecionador();
         }
- 
-        salvarTreiner();
-    } else {
-        salvarTreiner();
     }
- 
+
+    salvarTreiner();
     run();
 }
- 
-// ─── Registra um pokemon capturado no banco ───────────────────────────────────
+
+// ─── Registra pokemon no banco ────────────────────────────────────────────────
 function registrarPokemonNoBanco(idPokemon) {
     fetch("/pokemons/registrar", {
-        method: "POST",
+        method:  "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            idusuario: idusuario,
-            idPokemon: idPokemon
-        })
+        body: JSON.stringify({ idusuario: idusuario, idPokemon: idPokemon })
     })
-    .then(function() { console.log(`Pokemon ${idPokemon} registrado no banco.`); })
+    .then(function() { console.log("Pokemon", idPokemon, "salvo."); })
     .catch(function(erro) { console.log("Erro ao registrar pokemon:", erro); });
 }
- 
-// ─── Desbloqueia um troféu no banco e no array local ─────────────────────────
+
+// ─── Verifica troféus de colecionador ────────────────────────────────────────
+function verificarTrofeusColecionador() {
+    const metas = [
+        { trofeuId: 41, meta: 10  },
+        { trofeuId: 42, meta: 30  },
+        { trofeuId: 43, meta: 60  },
+        { trofeuId: 44, meta: 100 },
+        { trofeuId: 45, meta: 125 },
+        { trofeuId: 46, meta: 150 },
+    ];
+    metas.forEach(function(item) {
+        if (player.pokedex >= item.meta && !trophies[item.trofeuId - 1].unlocked) {
+            desbloquearTrofeuNoBanco(item.trofeuId);
+        }
+    });
+}
+
+// ─── Desbloqueia troféu no banco e no array local ────────────────────────────
 function desbloquearTrofeuNoBanco(idTrofeu) {
     trophies[idTrofeu - 1].unlocked = true;
- 
     fetch("/trofeus/desbloquear", {
-        method: "POST",
+        method:  "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            idusuario: idusuario,
-            idTrofeu:  idTrofeu
-        })
+        body: JSON.stringify({ idusuario: idusuario, idTrofeu: idTrofeu })
     })
-    .then(function() { console.log(`Troféu ${idTrofeu} desbloqueado no banco.`); })
+    .then(function() { console.log("Troféu", idTrofeu, "desbloqueado."); })
     .catch(function(erro) { console.log("Erro ao desbloquear troféu:", erro); });
 }
- 
-// ─── Mostra o pokemon encontrado na batalha ───────────────────────────────────
+
+// ─── Exibe o pokémon encontrado na rota ──────────────────────────────────────
 async function findPokemon1() {
+    if (pokemon === 0 || pokemon > 151) return;
+
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
     const data     = await response.json();
- 
+
+    // BUG 5 CORRIGIDO: havia shinychance >= 8192, o que nunca acontece com Math.random
+    // O correto é == 8192 (chance de 1 em 8192)
     let shinychance = rng(8192, 1).toFixed(0);
-    if (pokemon > 151) { pokemon = 151; }
- 
-    lifeMax = pokemons[pokemon].life;
-    life = pokemons[pokemon].life;
-    document.getElementById("hpText").innerHTML = `${life} / ${lifeMax}`
- 
-    if (pokemons[pokemon].canFind == true) {
-        if (shinychance >= 8192) {
-            img1.src = data.sprites.versions['generation-v']['black-white'].animated.front_shiny;
-            pokemon_name.innerHTML = `${pokemons[pokemon].name} ✨`;
-        } else {
-            img1.src = data.sprites.versions['generation-v']['black-white'].animated.front_default;
-            pokemon_name.innerHTML = `${pokemons[pokemon].name}`;
-        }
+
+    // Define a vida do inimigo ANTES de liberar o FIGHT
+    pokelifeMax = pokemons[pokemon].life;
+    pokelife    = pokemons[pokemon].life;
+
+    var hpFill = document.getElementById("hpFill");
+    var hpText = document.getElementById("hpText");
+    if (hpFill) hpFill.style.width = "100%";
+    if (hpText) hpText.innerHTML   = `${pokelifeMax} / ${pokelifeMax}`;
+
+    if (pokemons[pokemon].canFind) {
+        // BUG 6 CORRIGIDO: sprites.versions['generation-v']... pode não existir em todos os pokémons
+        // Usando front_default/front_shiny que sempre existem na PokeAPI
+        img1.src               = shinychance == 8192
+            ? data.sprites.front_shiny
+            : data.sprites.front_default;
+        pokemon_name.innerHTML = shinychance == 8192
+            ? `${pokemons[pokemon].name} ✨`
+            : pokemons[pokemon].name;
     }
 }
 
-function brock() {
-    img1.src = 'assets/img/brock.jpg';
-    document.getElementById("spanRoute").innerHTML = "1º Gym";
-    lifeMax = lideres[0].maxLife;
-    life = lideres[0].life;
-    document.getElementById("pokemonName").innerHTML = "Brock";
-    document.getElementById("hpText").innerHTML = `${life} / ${lifeMax}`
+// ─── Funções dos líderes de ginásio ──────────────────────────────────────────
+function carregarLider(indice, imgSrc, nomeRota, nomeLider) {
+    img1.src = imgSrc;
+    document.getElementById("spanRoute").innerHTML   = nomeRota;
+    document.getElementById("pokemonName").innerHTML = nomeLider;
+    pokelifeMax = lideres[indice].maxLife;
+    pokelife    = lideres[indice].life;
+    document.getElementById("hpText").innerHTML = `${pokelife} / ${pokelifeMax}`;
+    var hpFill = document.getElementById("hpFill");
+    if (hpFill) hpFill.style.width = "100%";
 }
 
-function misty() {
-    img1.src = 'assets/img/misty.jpg';
-    document.getElementById("spanRoute").innerHTML = "2º Gym"
-    lifeMax = lideres[1].maxLife;
-    life = lideres[1].life;
-    document.getElementById("pokemonName").innerHTML = "Misty";
-    document.getElementById("hpText").innerHTML = `${life} / ${lifeMax}`
-}
-
-function ltSurge() {
-    img1.src = 'assets/img/lt-surge.jpg';
-    document.getElementById("spanRoute").innerHTML = "3º Gym"
-    lifeMax = lideres[2].maxLife;
-    life = lideres[2].life;
-    document.getElementById("pokemonName").innerHTML = "lt. Surge";
-    document.getElementById("hpText").innerHTML = `${life} / ${lifeMax}`
-}
-
-function erika() {
-    img1.src = 'assets/img/erika.jpg';
-    document.getElementById("spanRoute").innerHTML = "4º Gym"
-    lifeMax = lideres[3].maxLife;
-    life = lideres[3].life;
-    document.getElementById("pokemonName").innerHTML = "Erika";
-    document.getElementById("hpText").innerHTML = `${life} / ${lifeMax}`
-}
-
-function koga() {
-    img1.src = 'assets/img/koga.jpg';
-    document.getElementById("spanRoute").innerHTML = "5º Gym"
-    lifeMax = lideres[4].maxLife;
-    life = lideres[4].life;
-    document.getElementById("pokemonName").innerHTML = "Koga";
-    document.getElementById("hpText").innerHTML = `${life} / ${lifeMax}`
-}
-
-function sabrina() {
-    img1.src = 'assets/img/sabrina.jpg';
-    document.getElementById("spanRoute").innerHTML = "6º Gym"
-    lifeMax = lideres[5].maxLife;
-    life = lideres[5].life;
-    document.getElementById("pokemonName").innerHTML = "Sabrina";
-    document.getElementById("hpText").innerHTML = `${life} / ${lifeMax}`
-}
-
-function blaine() {
-    img1.src = 'assets/img/blaine.jpg';
-    document.getElementById("spanRoute").innerHTML = "7º Gym"
-    lifeMax = lideres[6].maxLife;
-    life = lideres[6].life;
-    document.getElementById("pokemonName").innerHTML = "Blaine";
-    document.getElementById("hpText").innerHTML = `${life} / ${lifeMax}`
-}
-
-function giovanni() {
-    img1.src = 'assets/img/giovanni.jpg';
-    document.getElementById("spanRoute").innerHTML = "8º Gym"
-    lifeMax = lideres[7].maxLife;
-    life = lideres[7].life;
-    document.getElementById("pokemonName").innerHTML = "Giovanni";
-    document.getElementById("hpText").innerHTML = `${life} / ${lifeMax}`
-}
-
-function lorelei() {
-    img1.src = 'assets/img/ltSurge.jpg';
-    document.getElementById("spanRoute").innerHTML = "1º Elite"
-    lifeMax = lideres[8].maxLife;
-    life = lideres[8].life;
-    document.getElementById("pokemonName").innerHTML = "Lorelei";
-    document.getElementById("hpText").innerHTML = `${life} / ${lifeMax}`
-}
-
-function bruno() {
-    img1.src = 'assets/img/ltSurge.jpg';
-    document.getElementById("spanRoute").innerHTML = "2º Elite"
-    lifeMax = lideres[9].maxLife;
-    life = lideres[9].life;
-    document.getElementById("pokemonName").innerHTML = "Bruno";
-    document.getElementById("hpText").innerHTML = `${life} / ${lifeMax}`
-}
-
-function agatha() {
-    img1.src = 'assets/img/ltSurge.jpg';
-    document.getElementById("spanRoute").innerHTML = "3º Elite"
-    lifeMax = lideres[10].maxLife;
-    life = lideres[10].life;
-    document.getElementById("pokemonName").innerHTML = "Agatha";
-    document.getElementById("hpText").innerHTML = `${life} / ${lifeMax}`
-}
-
-function lance() {
-    img1.src = 'assets/img/ltSurge.jpg';
-    document.getElementById("spanRoute").innerHTML = "4º Elite"
-    lifeMax = lideres[11].maxLife;
-    life = lideres[11].life;
-    document.getElementById("pokemonName").innerHTML = "Lance";
-    document.getElementById("hpText").innerHTML = `${life} / ${lifeMax}`
-}
-
-function blue() {
-    img1.src = 'assets/img/ltSurge.jpg';
-    document.getElementById("spanRoute").innerHTML = "Champeon"
-    lifeMax = lideres[12].maxLife;
-    life = lideres[12].life;
-    document.getElementById("pokemonName").innerHTML = "Blue";
-    document.getElementById("hpText").innerHTML = `${life} / ${lifeMax}`
-}
-
-function red() {
-    img1.src = 'assets/img/red.jpg';
-    document.getElementById("spanRoute").innerHTML = "Mt. Silver"
-    lifeMax = lideres[13].maxLife;
-    life = lideres[13].life;
-    document.getElementById("pokemonName").innerHTML = "...";
-    document.getElementById("hpText").innerHTML = `${life} / ${lifeMax}`
-}
+function brock()    { carregarLider(0,  'assets/img/brock.jpg',    '1º Gym',    'Brock');    }
+function misty()    { carregarLider(1,  'assets/img/misty.jpg',    '2º Gym',    'Misty');    }
+function ltSurge()  { carregarLider(2,  'assets/img/lt-surge.jpg', '3º Gym',    'Lt. Surge');}
+function erika()    { carregarLider(3,  'assets/img/erika.jpg',    '4º Gym',    'Erika');    }
+function koga()     { carregarLider(4,  'assets/img/koga.jpg',     '5º Gym',    'Koga');     }
+function sabrina()  { carregarLider(5,  'assets/img/sabrina.jpg',  '6º Gym',    'Sabrina');  }
+function blaine()   { carregarLider(6,  'assets/img/blaine.jpg',   '7º Gym',    'Blaine');   }
+function giovanni() { carregarLider(7,  'assets/img/giovanni.jpg', '8º Gym',    'Giovanni'); }
+function lorelei()  { carregarLider(8,  'assets/img/ltSurge.jpg',  '1º Elite',  'Lorelei');  }
+function bruno()    { carregarLider(9,  'assets/img/ltSurge.jpg',  '2º Elite',  'Bruno');    }
+function agatha()   { carregarLider(10, 'assets/img/ltSurge.jpg',  '3º Elite',  'Agatha');   }
+function lance()    { carregarLider(11, 'assets/img/ltSurge.jpg',  '4º Elite',  'Lance');    }
+function blue()     { carregarLider(12, 'assets/img/ltSurge.jpg',  'Champeon',  'Blue');     }
+function red()      { carregarLider(13, 'assets/img/red.jpg',      'Mt. Silver','...');      }
