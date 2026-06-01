@@ -8,11 +8,44 @@
     body{
       background-color: black;
       color: white;
-      display: flex;
-      flex-direction: column;
       height: 100vh;
     }
 
+
+  /* NAVBAR */
+.navbar { 
+  background: #000;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:fixed;
+  top: 0; 
+  z-index: 100; 
+  border-bottom: 2px solid rgba(255, 0, 255, 0.37);
+  gap: 5vh;
+}
+.logo-icon img { 
+  width: 9%; 
+  height: 9%;
+}
+.navbar-links { 
+  display: flex; 
+  gap: 30px;
+  color: #fff; 
+  font-size: 0.9rem; 
+}
+.navbar a{
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  transform: scale(1.3);
+  color: rgba(255, 0, 255, 0.637);
+}
 
 /* CONTEÚDO PRINCIPAL */
 
@@ -20,38 +53,545 @@
   background-image: url(../assets/img/indexIMG1.png);
   background-repeat: no-repeat;
   background-size:cover;
-  min-height: 80vh; display: flex; 
+  min-height: 80vh; 
+  min-width: 80%;
   align-items: center; 
   padding: 50px; 
   position: relative; 
   overflow: hidden; 
-
+  margin-left: 40vh;
 }
     .container{
       display: flex;
       flex: 1;
     }
 
-    
-    /* CARDS */
-    .cards{
-      margin-top: 30px;
+    .Map-section {
+      height: 100%;
+      width: 100%;
+      min-height: 100vh;
       display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+
+      background-color: #303030;
     }
 
-    .card{
-      width: 250px;
-      height: 150px;
-      border: 2px solid red;
-      border-radius: 10px;
-      background-color: #111;
-      padding: 20px;
-      transition: 0.5s;
+    .div-map {
+      height: 70vh;
+      width: 70vh;
+      display: flex;
+      position: absolute;
+      margin-top: 15vh;
+      margin-left: 125vh;
+      background-color: #303030;
     }
 
-    .card:hover{
-      transform: scale(1.03);
-      box-shadow: 0 0 10px red;
+    .div-map button {
+      border: 2.5px solid #fff;
+      color: #fff;
+      background-color: #000;
+      border-radius: 0px;
+      width: 8vh;
+      height: 8vh;
+      padding-left: 0.1vh;
+      transition: 0.3s;
     }
+
+    .div-map button:hover {
+      transform: scale(1.5);
+      z-index: 10;
+    }
+
+    #titulo-Kanto {
+      margin-left: 45%;
+      margin-top: 2vh;
+      font-size: 60px;
+    }
+
+    .div-txt-map {
+      height: 80vh;
+      width: 55vh;
+      color: #FFF;
+      position: absolute;
+      margin-top: 10vh;
+      margin-left: 40vh;
+      display: flex;
+      flex-flow: column wrap;
+      align-content: center;
+      justify-content: center;
+    }
+
+    .img-txt-map {
+      height: 100px;
+      width: 100px;
+    }
+
+    .div-imgs {
+      display: flex;
+    }
+
+    .div-img-txt {
+      width: 100px;
+      height: 100px;
+    }
+
+    .div-txt-txt {
+      width: 100px;
+      height: 25px;
+      font-size: 15px;
+      color: #fff;
+    }
+
+    .div-pokemon {
+      height: 125px;
+      width: 100px;
+
+      margin-top: 2vh;
+      margin-left: 2vh;
+    }
+
+    .titulo-rota {
+      margin-top: 1vh;
+      margin-left: 35%;
+      position: relative;
+      z-index: 999;
+    }
+
+    .img-txt-map-legendary {
+      width: 450px;
+      height: 450px;
+    }
+
+    #div-final {
+      background-color: #000;
+      width: 100%;
+      height: 40vh;
+      display: flex;
+    }
+
+    #div_img_dev {
+      width: 40vh;
+      height: 40vh;
+      border: solid 3px;
+      border-radius: 100%;
+      background-image:url(../assets/img/dev.png);
+      background-repeat: no-repeat;
+      background-size:cover;
+      margin-top: 2vh;
+      margin-left: 2vh;
+    }
+
+    
+
+    #div_txt_end {
+      color: #FFF;
+      width: 45vh;
+      height: 40vh;
+      margin-left: 3vh;
+      margin-top: 1vh;
+      padding-left: 1vh;
+      font-size: 15px;
+      justify-items: center;
+      align-content: center;
+      border-right: #6d6d6d9f solid 1.5px;
+    }
+
+    #div_txt_end2 {
+      color: #FFF;
+      
+      height: 40vh;
+      margin-left: 3vh;
+      margin-top: 1vh;
+      padding-left: 1vh;
+      font-size: 15px;
+      justify-items: center;
+      align-content: center;
+    }
+
+    #div_txt_end2 a {
+      text-decoration: none;
+      color: #FFF;
+      transition: 0.3s;
+    }
+
+    #div_txt_end2 a:hover {
+      transform: scale(1.3);
+      color: rgba(255, 0, 255, 0.637);
+    }
+
+    .inter {
+      padding-left: 2vh;
+    }
+
+#PalletTown {
+  position: absolute;
+  margin-top: 40vh;
+  margin-left: 10vh;
+  height: 5vh;
+  width: 5vh;
+}
+
+#route1 {
+  position: absolute;
+  margin-left: 11vh;
+  margin-top: 33vh;
+  height: 7vh;
+  width: 2.2vh;
+}
+
+#ViridianCity {
+  position: absolute;
+  margin-left: 8vh;
+  margin-top: 25vh;
+  
+}
+
+#route22{
+  position: absolute;
+  margin-top: 28vh;
+  margin-left: 2vh;
+  height: 2.2vh;
+  width: 6vh;
+}
+
+#route23 {
+  position: absolute;
+  margin-top: 22vh;
+  margin-left: 2vh;
+  height: 6vh;
+  width: 2.4vh;
+}
+
+#VictoryRoad {
+  position: absolute;
+  margin-top: 15vh;
+  margin-left: 1vh;
+  height: 7vh;
+  width: 5vh;
+  
+  
+}
+
+
+#IndigoPlateau {
+  position: absolute;
+  margin-top: 8vh;
+  margin-left: 0vh;
+  height: 7vh;
+  width: 7vh;
+  
+  
+}
+
+#route2 {
+  position: absolute;
+  margin-left: 12vh;
+  margin-top: 12vh;
+  height:13vh;
+  width: 2.2vh;
+  padding-top: 5vh;
+}
+
+#ViridianForest {
+  position: absolute;
+  margin-left: 10vh;
+  margin-top: 15vh;
+  height:4vh;
+  width: 6vh;
+  
+  
+}
+
+#PewterCity {
+  position: absolute;
+  margin-left: 9vh;
+  margin-top: 5vh;
+  
+  
+}
+
+#route3 {
+  position: absolute;
+  margin-left: 17vh;
+  margin-top: 8vh;
+  height:2.2vh;
+  width: 10vh;
+}
+
+#MTMoon {
+  position: absolute;
+  margin-left: 27vh;
+  margin-top: 7vh;
+  height:5vh;
+  width: 7vh;
+  
+  
+}
+
+#route4 {
+  position: absolute;
+  margin-left: 34vh;
+  margin-top: 8vh;
+  height:2.2vh;
+  width: 6vh;
+}
+
+#CeruleanCity {
+  position: absolute;
+  margin-left: 40vh;
+  margin-top: 5vh;
+  
+  
+}
+
+#CeruleanCave {
+  position: absolute;
+  margin-left: 35vh;
+  margin-top: 1vh;
+  height:4.5vh;
+  width: 4.5vh;
+  font-size: 8px;
+  
+  
+}
+
+#route24 {
+  position: absolute;
+  margin-left: 43vh;
+  margin-top: 1vh;
+  height:4vh;
+  width: 2.2vh;
+}
+
+#route25 {
+  position: absolute;
+  margin-left: 45vh;
+  margin-top: 1vh;
+  height:2.2vh;
+  width: 6vh;
+}
+
+#route5 {
+  position: absolute;
+  margin-left: 43vh;
+  margin-top: 13vh;
+  height: 5vh;
+  width: 2.2vh;
+}
+
+#route6 {
+  position: absolute;
+  margin-left: 43vh;
+  margin-top: 26vh;
+  width: 2.2vh;
+  height: 4vh;
+}
+
+#route7 {
+  position: absolute;
+  margin-left: 33vh;
+  margin-top: 21vh;
+  width: 7vh;
+  height: 2.2vh;
+}
+
+#route8 {
+  position: absolute;
+  margin-left: 48vh;
+  margin-top: 21vh;
+  width: 8vh;
+  height: 2.2vh;
+}
+
+#route9 {
+  position: absolute;
+  margin-left: 48vh;
+  margin-top: 8vh;
+  height:2.2vh;
+  width: 8vh;
+}
+
+#RockTunnel {
+  position: absolute;
+  height:5vh;
+  width: 5vh;
+  margin-top: 8vh;
+  margin-left: 56vh;
+  
+  
+}
+
+#route10 {
+  position: absolute;
+  height: 6vh;
+  width: 2.2vh;
+  margin-top: 13vh;
+  margin-left: 58vh;
+}
+
+#route11 {
+  position: absolute;
+  margin-left: 48vh;
+  margin-top: 33vh;
+  width: 10vh;
+  height: 2.2vh;
+}
+
+#SaffronCity {
+  position: absolute;
+  margin-left: 40vh;
+  margin-top: 18vh;
+  
+  
+}
+
+#LavenderTown {
+  position: absolute;
+  margin-top: 19vh;
+  margin-left: 56vh;
+  height:6.5vh;
+  width: 6.5vh;
+  
+  
+}
+
+#CeladonCity {
+  position: absolute;
+  margin-left: 25vh;
+  margin-top: 18vh;
+  
+  
+}
+
+#VermilionCity {
+  position: absolute;
+  margin-left: 40vh;
+  margin-top: 30vh;
+  
+  
+}
+
+#route12 {
+  position: absolute;
+  margin-left: 58vh;
+  margin-top: 25vh;
+  width: 2.2vh;
+  height: 11vh;
+}
+
+#route13 {
+  position: absolute;
+  margin-left: 58vh;
+  margin-top: 34.5vh;
+  width: 2.2vh;
+  height: 12vh;
+}
+
+#route14 {
+  position: absolute;
+  margin-left: 47vh;
+  margin-top: 46.5vh;
+  width: 13.2vh;
+  height: 2.2vh;
+}
+
+#route15 {
+  position: absolute;
+  margin-left: 34vh;
+  margin-top: 48.7vh;
+  width: 15vh;
+  height: 2.2vh;
+}
+
+#FuchsiaCity {
+  position: absolute;
+  margin-left: 27vh;
+  margin-top: 47.5vh;
+  
+  
+}
+
+#route16 {
+  position: absolute;
+  margin-left: 20vh;
+  margin-top: 21vh;
+  width: 5vh;
+  height: 2.2vh;
+}
+
+#route17 {
+  position: absolute;
+  margin-left: 20vh;
+  margin-top: 23.2vh;
+  width: 2.2vh;
+  height: 28vh;
+}
+
+#route18 {
+  position: absolute;
+  margin-left: 20vh;
+  margin-top: 51.2vh;
+  width: 7vh;
+  height: 2.2vh;
+}
+
+#route19 {
+  position: absolute;
+  margin-left: 25vh;
+  margin-top: 55.5vh;
+  height: 2.2vh;
+  width: 7vh;
+}
+
+#route20 {
+  position: absolute;
+  margin-top: 58vh;
+  margin-left: 15vh;
+  height: 2.2vh;
+  width: 5vh;
+}
+
+#route21 {
+  position: absolute;
+  margin-top: 45vh;
+  margin-left: 11vh;
+  width: 2.2vh;
+  height: 10vh;
+}
+
+#CinnabarIsland {
+  position: absolute;
+  margin-top: 55vh;
+  margin-left: 7vh;
+  
+  
+}
+
+#SeafoanIslands {
+  position: absolute;
+  margin-top: 55vh;
+  margin-left: 20vh;
+  height:5vh;
+  width: 5vh;
+  
+  
+}
+
+#PowerPlant {
+  position: absolute;
+  height:4.5vh;
+  width: 4.5vh;
+  margin-top: 14vh;
+  margin-left: 61vh;
+  
+  
+}
+
+#DiglettsCave {
+  position: absolute;
+  height: 3.5vh;
+  width: 3.5vh;
+  margin-top: 29vh;
+  margin-left: 49vh;
+  font-size: 7px;
+  
+}

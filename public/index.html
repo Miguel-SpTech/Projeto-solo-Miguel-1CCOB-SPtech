@@ -5,49 +5,1144 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
   <link rel="stylesheet" href="css/mainStyle.css">
-  <link rel="stylesheet" href="css/sidebar.css">
 </head>
 <body>
+    <!-- SIDEBAR -->
+  <header>
+      <div class="navbar">
+      <h2>Menu</h2>
+        <a href="#hero">inicio</a><br><br>
+        <a href="#Map-section">Conheça kanto</a><br><br>
+        <span>pronto para começar?  </span><a href="login.html" id="a_login">Login</a>
+        
+      </div>
+  </header>
+
 
   <!-- CONTAINER -->
   <div class="container">
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <h2>Menu</h2>
-
-      <ul>
-        <a href="">inicio</a><br><br>
-        <a href="">Pokemon Experience</a><br><br>
-        <span>pronto para começar?  </span><a href="login.html" id="a_login">Login</a>
-        
-      </ul>
-    </aside>
-
-    <!-- CONTEÚDO -->
-    <main class="main-content">
+  
       <section id="hero" >
 
       </section>
-      <h1>Bem-vindo</h1>
-
-      <p>
-        Essa é uma estrutura base totalmente customizável.
-        Você pode alterar cores, tamanhos, adicionar animações,
-        imagens, gráficos, tabelas e qualquer outro elemento.
-      </p>
-
-      <div class="cards">
-
-        <div class="card">
-          <h3>Card 1</h3>
-          <p>Informações aqui.</p>
-        </div>
-        </div>
-
-    </main>
 
   </div>
-
+  <section class="Map-section" id="Map-section">
+    <h2 id="titulo-Kanto">Conheça Kanto!</h2>
+    <div class="div-map">
+      <button id="route1" onclick="route1()">1</button>
+      <button id="route2" onclick="route2()">2</button>
+      <button id="route3" onclick="route3()">3</button>
+      <button id="route4" onclick="route4()">4</button>
+      <button id="route5" onclick="route5()">5</button>
+      <button id="route6" onclick="route6()">6</button>
+      <button id="route7" onclick="route7()">7</button>
+      <button id="route8" onclick="route8()">8</button>
+      <button id="route9" onclick="route9()">9</button>
+      <button id="route10" onclick="route10()">10</button>
+      <button id="route11" onclick="route11()">11</button>
+      <button id="route12" onclick="route12()">12</button>
+      <button id="route13" onclick="route13()">13</button>
+      <button id="route14" onclick="route14()">14</button>
+      <button id="route15" onclick="route15()">15</button>
+      <button id="route16" onclick="route16()">16</button>
+      <button id="route17" onclick="route17()">17</button>
+      <button id="route18" onclick="route18()">18</button>
+      <button id="route19" onclick="route19()">19</button>
+      <button id="route20" onclick="route20()">20</button>
+      <button id="route21" onclick="route21()">21</button>
+      <button id="route22" onclick="route22()">22</button>
+      <button id="route23" onclick="route23()">23</button>
+      <button id="route24" onclick="route24()">24</button>
+      <button id="route25" onclick="route25()">25</button>
+      <button id="PalletTown" onclick="PalletTown()">Pallet Town</button>
+      <button id="ViridianCity" onclick="ViridianCity()">Viridian City</button>
+      <button id="VictoryRoad" onclick="VictoryRoad()">victory road</button>
+      <button id="IndigoPlateau" onclick="IndigoPlateu()">indigo plateau</button>
+      <button id="ViridianForest" onclick="ViridianForest()">Viridian Forest</button>
+      <button id="PewterCity" onclick="PewterCity()">Pewter City</button>
+      <button id="MTMoon" onclick="MTMoon()">MT. Moon</button>
+      <button id="CeruleanCity" onclick="CeruleanCity()">Cerulean city</button>
+      <button id="CeruleanCave" onclick="CeruleanCave()">Cerulean Cave</button>
+      <button id="RockTunnel" onclick="RockTunnel()">Rock Tunnel</button>
+      <button id="LavenderTown" onclick="LavenderTown()">Lavander Town</button>
+      <button id="SaffronCity" onclick="SaffronCity()">Saffron City</button>
+      <button id="CeladonCity" onclick="CeladonCity()">Celadon City</button>
+      <button id="VermilionCity" onclick="VermilionCity()">Vermilion City</button>
+      <button id="FuchsiaCity" onclick="FuchsiaCity()">Fuchsia City</button>
+      <button id="CinnabarIsland" onclick="CinnabarIsland()">Cinnabar Island</button>
+      <button id="SeafoanIslands" onclick="SeafonIsland()">Seafoan Islands</button>
+      <button id="PowerPlant" onclick="PowerPlant()">Power Plant</button>
+      <button id="DiglettsCave" onclick="DiglettsCave()">Diglett's cave</button>
+    </div>
+    <div class="div-txt-map" id="div_txt_map">
+      <h1>Veja detalhes sobre os lugares em kanto</h1>
+      <h1>Selecione no mapa ao lado</h1>
+    </div>
+  </section>
+  <section class="end" id="final">
+    <div id="div-final">
+      <div id="div_img_dev"></div>
+      <div id="div_txt_end">
+        <b><span>site criado por:</span></b><br><br>
+        <span class="inter">Miguel Soneti Mauer</span><br>
+        <span class="inter">ig: @_miguelson._</span><br><br>
+        <b><span>Maneiras de contato:</span></b><br><br>
+        <span class="inter">miguel.mauer@sptech.school</span><br>
+        <span class="inter">linkedin: Miguel Soneti Mauer</span>
+      </div>
+      <div id="div_txt_end2">
+        <b><span class="inter">Esse site tem o seu conteudo baseado 100% nos jogos da <a href="https://www.pokemon.com/br">Pokémon Company</a></span></b>
+      </div>
+    </div>
+    
+  </section>
 </body>
 </html>
+<script>
+  let div_txt = document.getElementById("div_txt_map");
+  async function chamarPokemon(p) {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${p}`);
+    const data = await response.json();
+
+    console.log(data);
+
+    return data
+  }
+
+  async function route1() {
+    let rattata = await chamarPokemon(19);
+    let pidgey = await chamarPokemon(16);
+
+    console.log(rattata);
+    console.log(pidgey);
+
+    div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 1</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Rattata - 50%</span></div>
+          <div class="div-img-txt"><img src="${rattata.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Pidgey - 50%</span></div>
+          <div class="div-img-txt"><img src="${pidgey.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+  }
+
+  async function route2() {
+    let rattata = await chamarPokemon(19);
+    let pidgey = await chamarPokemon(16);
+    let caterpie = await chamarPokemon(10);
+    let weedle = await chamarPokemon(13);
+
+    console.log(rattata);
+    console.log(pidgey);
+    console.log(caterpie);
+    console.log(weedle);
+
+    div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 2</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Rattata - 45%</span></div>
+          <div class="div-img-txt"><img src="${rattata.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Pidgey - 45%</span></div>
+          <div class="div-img-txt"><img src="${pidgey.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Caterpie - 5%</span></div>
+          <div class="div-img-txt"><img src="${caterpie.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Weedle - 5%</span></div>
+          <div class="div-img-txt"><img src="${weedle.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+  }
+
+  async function route3() {
+    let rattata = await chamarPokemon(19);
+    let pidgey = await chamarPokemon(16);
+    let Spearow = await chamarPokemon(21);
+    let nidoran1 = await chamarPokemon(29);
+    let nidoran2 = await chamarPokemon(32);
+
+    console.log(rattata);
+    console.log(pidgey);
+    console.log(Spearow);
+    console.log(nidoran1);
+    console.log(nidoran2);
+
+    div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 3</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Rattata - 25%</span></div>
+          <div class="div-img-txt"><img src="${rattata.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Pidgey - 35%</span></div>
+          <div class="div-img-txt"><img src="${pidgey.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Spearow - 25%</span></div>
+          <div class="div-img-txt"><img src="${Spearow.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Nidoran♀ - 8%</span></div>
+          <div class="div-img-txt"><img src="${nidoran1.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Nidoran♂ - 7%</span></div>
+          <div class="div-img-txt"><img src="${nidoran2.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+  }
+
+  async function route4() {
+    let rattata = await chamarPokemon(19);
+    let spearow = await chamarPokemon(21);
+
+    console.log(rattata);
+    console.log(spearow);
+
+    div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 4</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Rattata - 55%</span></div>
+          <div class="div-img-txt"><img src="${rattata.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Spearow - 45%</span></div>
+          <div class="div-img-txt"><img src="${spearow.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+  }
+
+  async function route5() {
+    let pidgey = await chamarPokemon(16);
+    let meowth = await chamarPokemon(52);
+    let oddish = await chamarPokemon(43);
+    let bellsprout = await chamarPokemon(69);
+
+    console.log(pidgey);
+    console.log(meowth);
+    console.log(oddish);
+    console.log(bellsprout);
+
+    div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 5</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Pidgey - 40%</span></div>
+          <div class="div-img-txt"><img src="${pidgey.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Meowth - 40%</span></div>
+          <div class="div-img-txt"><img src="${meowth.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Oddish - 10%</span></div>
+          <div class="div-img-txt"><img src="${oddish.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Bellsprout - 10%</span></div>
+          <div class="div-img-txt"><img src="${bellsprout.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+  }
+
+  async function route6() {
+    let pidgey = await chamarPokemon(16);
+    let meowth = await chamarPokemon(52);
+    let oddish = await chamarPokemon(43);
+    let bellsprout = await chamarPokemon(69);
+
+    console.log(pidgey);
+    console.log(meowth);
+    console.log(oddish);
+    console.log(bellsprout);
+
+    div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 6</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Pidgey - 40%</span></div>
+          <div class="div-img-txt"><img src="${pidgey.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Meowth - 40%</span></div>
+          <div class="div-img-txt"><img src="${meowth.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Oddish - 10%</span></div>
+          <div class="div-img-txt"><img src="${oddish.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Bellsprout - 10%</span></div>
+          <div class="div-img-txt"><img src="${bellsprout.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+  }
+
+  async function route7() {
+    let pidgey = await chamarPokemon(16);
+    let meowth = await chamarPokemon(52);
+    let vulpix = await chamarPokemon(37);
+    let growlithe = await chamarPokemon(58);
+
+    console.log(pidgey);
+    console.log(meowth);
+    console.log(vulpix);
+    console.log(growlithe);
+
+    div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 7</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Pidgey - 30%</span></div>
+          <div class="div-img-txt"><img src="${pidgey.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Meowth - 30%</span></div>
+          <div class="div-img-txt"><img src="${meowth.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Vulpix - 20%</span></div>
+          <div class="div-img-txt"><img src="${vulpix.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Growlithe - 20%</span></div>
+          <div class="div-img-txt"><img src="${growlithe.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+  }
+
+  async function route8() {
+    let pidgey = await chamarPokemon(16);
+    let meowth = await chamarPokemon(52);
+    let vulpix = await chamarPokemon(37);
+    let growlithe = await chamarPokemon(58);
+
+    console.log(pidgey);
+    console.log(meowth);
+    console.log(vulpix);
+    console.log(growlithe);
+
+    div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 8</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Pidgey - 30%</span></div>
+          <div class="div-img-txt"><img src="${pidgey.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Meowth - 30%</span></div>
+          <div class="div-img-txt"><img src="${meowth.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Vulpix - 20%</span></div>
+          <div class="div-img-txt"><img src="${vulpix.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Growlithe - 20%</span></div>
+          <div class="div-img-txt"><img src="${growlithe.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+  }
+
+  async function route9() {
+    let rattata = await chamarPokemon(19);
+    let raticate = await chamarPokemon(20);
+    let spearow = await chamarPokemon(21);
+    let fearow = await chamarPokemon(22);
+    let ekans = await chamarPokemon(23);
+    let sandshrew = await chamarPokemon(27);
+
+
+    console.log(rattata);
+    console.log(raticate);
+    console.log(spearow);
+    console.log(fearow);
+    console.log(ekans);
+    console.log(sandshrew);
+
+    div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 9</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Rattata - 30%</span></div>
+          <div class="div-img-txt"><img src="${rattata.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Spearow - 30%</span></div>
+          <div class="div-img-txt"><img src="${spearow.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Ekans - 12.5%</span></div>
+          <div class="div-img-txt"><img src="${ekans.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Sandshrew - 12.5%</span></div>
+          <div class="div-img-txt"><img src="${sandshrew.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Fearow - 10%</span></div>
+          <div class="div-img-txt"><img src="${fearow.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Raticate - 5%</span></div>
+          <div class="div-img-txt"><img src="${raticate.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+  }
+
+  async function route10() {
+    let spearow = await chamarPokemon(21);
+    let voltorb = await chamarPokemon(100);
+    let ekans = await chamarPokemon(23);
+    let sandshrew = await chamarPokemon(27);
+
+
+    console.log(spearow);
+    console.log(voltorb);
+    console.log(ekans);
+    console.log(sandshrew);
+
+    div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 10</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Spearow - 40%</span></div>
+          <div class="div-img-txt"><img src="${spearow.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Ekans - 15%</span></div>
+          <div class="div-img-txt"><img src="${ekans.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Sandshrew - 15%</span></div>
+          <div class="div-img-txt"><img src="${sandshrew.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Voltorb - 30%</span></div>
+          <div class="div-img-txt"><img src="${voltorb.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+  }
+
+  async function route11() {
+    let spearow = await chamarPokemon(21);
+    let drowzee = await chamarPokemon(96);
+    let ekans = await chamarPokemon(23);
+    let sandshrew = await chamarPokemon(27);
+    let rattata = await chamarPokemon(19);
+    let raticate = await chamarPokemon(20);
+
+    div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 11</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Spearow - 30%</span></div>
+          <div class="div-img-txt"><img src="${spearow.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Ekans - 15%</span></div>
+          <div class="div-img-txt"><img src="${ekans.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Sandshrew - 15%</span></div>
+          <div class="div-img-txt"><img src="${sandshrew.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Drowzee - 25%</span></div>
+          <div class="div-img-txt"><img src="${drowzee.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Rattata - 10%</span></div>
+          <div class="div-img-txt"><img src="${rattata.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Raticate - 5%</span></div>
+          <div class="div-img-txt"><img src="${raticate.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+  }
+
+  async function route12() {
+    let pidgey = await chamarPokemon(16);
+    let venonat = await chamarPokemon(48);
+    let oddish = await chamarPokemon(43);
+    let bellsprout = await chamarPokemon(69);
+    let pidgeotto = await chamarPokemon(17);
+    let gloom = await chamarPokemon(44);
+    let weepinbell = await chamarPokemon(70);
+
+    div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 12</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Pidgey - 30%</span></div>
+          <div class="div-img-txt"><img src="${pidgey.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Oddish - 15%</span></div>
+          <div class="div-img-txt"><img src="${oddish.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Bellsprout - 15%</span></div>
+          <div class="div-img-txt"><img src="${bellsprout.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Venonat - 25%</span></div>
+          <div class="div-img-txt"><img src="${venonat.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Pidgeotto - 10%</span></div>
+          <div class="div-img-txt"><img src="${pidgeotto.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Gloom - 5%</span></div>
+          <div class="div-img-txt"><img src="${gloom.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Weepinbell - 5%</span></div>
+          <div class="div-img-txt"><img src="${weepinbell.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+  }
+
+  async function route13() {
+    let pidgey = await chamarPokemon(16);
+    let venonat = await chamarPokemon(48);
+    let oddish = await chamarPokemon(43);
+    let bellsprout = await chamarPokemon(69);
+    let pidgeotto = await chamarPokemon(17);
+    let gloom = await chamarPokemon(44);
+    let weepinbell = await chamarPokemon(70);
+
+    div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 13</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Pidgey - 20%</span></div>
+          <div class="div-img-txt"><img src="${pidgey.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Oddish - 15%</span></div>
+          <div class="div-img-txt"><img src="${oddish.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Bellsprout - 15%</span></div>
+          <div class="div-img-txt"><img src="${bellsprout.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Venonat - 30%</span></div>
+          <div class="div-img-txt"><img src="${venonat.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Pidgeotto - 10%</span></div>
+          <div class="div-img-txt"><img src="${pidgeotto.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Gloom - 5%</span></div>
+          <div class="div-img-txt"><img src="${gloom.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Weepinbell - 5%</span></div>
+          <div class="div-img-txt"><img src="${weepinbell.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+  }
+
+async function route14() {
+    let fearow = await chamarPokemon(22);
+    let venonat = await chamarPokemon(48);
+    let oddish = await chamarPokemon(43);
+    let bellsprout = await chamarPokemon(69);
+    let pidgeotto = await chamarPokemon(17);
+    let gloom = await chamarPokemon(44);
+    let weepinbell = await chamarPokemon(70);
+
+    div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 14</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Fearow - 10%</span></div>
+          <div class="div-img-txt"><img src="${fearow.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Oddish - 15%</span></div>
+          <div class="div-img-txt"><img src="${oddish.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Bellsprout - 15%</span></div>
+          <div class="div-img-txt"><img src="${bellsprout.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Venonat - 30%</span></div>
+          <div class="div-img-txt"><img src="${venonat.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Pidgeotto - 20%</span></div>
+          <div class="div-img-txt"><img src="${pidgeotto.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Gloom - 5%</span></div>
+          <div class="div-img-txt"><img src="${gloom.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Weepinbell - 5%</span></div>
+          <div class="div-img-txt"><img src="${weepinbell.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+}
+
+async function route15() {
+  let fearow = await chamarPokemon(22);
+    let venonat = await chamarPokemon(48);
+    let oddish = await chamarPokemon(43);
+    let bellsprout = await chamarPokemon(69);
+    let pidgeotto = await chamarPokemon(17);
+    let gloom = await chamarPokemon(44);
+    let weepinbell = await chamarPokemon(70);
+
+    div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 15</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Fearow - 10%</span></div>
+          <div class="div-img-txt"><img src="${fearow.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Oddish - 15%</span></div>
+          <div class="div-img-txt"><img src="${oddish.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Bellsprout - 15%</span></div>
+          <div class="div-img-txt"><img src="${bellsprout.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Venonat - 30%</span></div>
+          <div class="div-img-txt"><img src="${venonat.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Pidgeotto - 20%</span></div>
+          <div class="div-img-txt"><img src="${pidgeotto.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Gloom - 5%</span></div>
+          <div class="div-img-txt"><img src="${gloom.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Weepinbell - 5%</span></div>
+          <div class="div-img-txt"><img src="${weepinbell.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+}
+
+async function route16() {
+  let rattata = await chamarPokemon(19);
+  let spearow = await chamarPokemon(21);
+  let raticate = await chamarPokemon(20);
+  let fearow = await chamarPokemon(22);
+  let doduo = await chamarPokemon(84);
+
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 16</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Rattata - 30%</span></div>
+          <div class="div-img-txt"><img src="${rattata.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Spearow - 30%</span></div>
+          <div class="div-img-txt"><img src="${spearow.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Doduo - 30%</span></div>
+          <div class="div-img-txt"><img src="${doduo.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Fearow - 5%</span></div>
+          <div class="div-img-txt"><img src="${fearow.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Raticate - 5%</span></div>
+          <div class="div-img-txt"><img src="${raticate.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+}
+
+async function route17() {
+  let ponyta = await chamarPokemon(77);
+  let spearow = await chamarPokemon(21);
+  let raticate = await chamarPokemon(20);
+  let fearow = await chamarPokemon(22);
+  let doduo = await chamarPokemon(84);
+
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 17</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Ponyta - 15%</span></div>
+          <div class="div-img-txt"><img src="${ponyta.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Spearow - 30%</span></div>
+          <div class="div-img-txt"><img src="${spearow.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Doduo - 30%</span></div>
+          <div class="div-img-txt"><img src="${doduo.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Fearow - 20%</span></div>
+          <div class="div-img-txt"><img src="${fearow.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Raticate - 5%</span></div>
+          <div class="div-img-txt"><img src="${raticate.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+}
+
+async function route18() {
+  let ponyta = await chamarPokemon(77);
+  let spearow = await chamarPokemon(21);
+  let raticate = await chamarPokemon(20);
+  let fearow = await chamarPokemon(22);
+  let doduo = await chamarPokemon(84);
+
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 18</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Ponyta - 15%</span></div>
+          <div class="div-img-txt"><img src="${ponyta.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Spearow - 30%</span></div>
+          <div class="div-img-txt"><img src="${spearow.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Doduo - 30%</span></div>
+          <div class="div-img-txt"><img src="${doduo.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Fearow - 20%</span></div>
+          <div class="div-img-txt"><img src="${fearow.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Raticate - 5%</span></div>
+          <div class="div-img-txt"><img src="${raticate.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+}
+
+async function route19() {
+  let tentacool = await chamarPokemon(72);
+  let tentacruel = await chamarPokemon(73);
+  let horsea = await chamarPokemon(116);
+
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 19</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Tentacool - 65%</span></div>
+          <div class="div-img-txt"><img src="${tentacool.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Tentacruel - 30%</span></div>
+          <div class="div-img-txt"><img src="${tentacruel.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Horsea - 10%</span></div>
+          <div class="div-img-txt"><img src="${horsea.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+}
+
+async function route20() {
+  let tentacool = await chamarPokemon(72);
+  let tentacruel = await chamarPokemon(73);
+  let horsea = await chamarPokemon(116);
+
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 20</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Tentacool - 65%</span></div>
+          <div class="div-img-txt"><img src="${tentacool.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Tentacruel - 30%</span></div>
+          <div class="div-img-txt"><img src="${tentacruel.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Horsea - 10%</span></div>
+          <div class="div-img-txt"><img src="${horsea.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+}
+
+async function route21() {
+  let tangela = await chamarPokemon(114);
+  let raticate = await chamarPokemon(20);
+  let rattata = await chamarPokemon(19);
+  let pidgey = await chamarPokemon(16);
+
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 21</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Tangela - 45%</span></div>
+          <div class="div-img-txt"><img src="${tangela.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Rattata - 30%</span></div>
+          <div class="div-img-txt"><img src="${rattata.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Pidgey - 20%</span></div>
+          <div class="div-img-txt"><img src="${pidgey.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div><div class="div-pokemon">
+          <div class="div-txt-txt"><span>Raticate - 10%</span></div>
+          <div class="div-img-txt"><img src="${raticate.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+}
+
+async function route22() {
+  let rattata = await chamarPokemon(19);
+  let spearow = await chamarPokemon(21);
+  let nidoran1 = await chamarPokemon(29);
+  let nidoran2 = await chamarPokemon(32);
+
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 22</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Spearow - 40%</span></div>
+          <div class="div-img-txt"><img src="${spearow.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Rattata - 40%</span></div>
+          <div class="div-img-txt"><img src="${rattata.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Nidoran♀ - 10%</span></div>
+          <div class="div-img-txt"><img src="${nidoran1.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div><div class="div-pokemon">
+          <div class="div-txt-txt"><span>Nidoran♂ - 10%</span></div>
+          <div class="div-img-txt"><img src="${nidoran2.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+}
+
+async function route23() {
+  let fearow = await chamarPokemon(22);
+  let arbok = await chamarPokemon(24);
+  let sandslash = await chamarPokemon(28);
+  let primeape = await chamarPokemon(57);
+  let machoke = await chamarPokemon(67);
+
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 23</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Fearow - 30%</span></div>
+          <div class="div-img-txt"><img src="${fearow.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Arbok - 15%</span></div>
+          <div class="div-img-txt"><img src="${arbok.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Sandslash - 15%</span></div>
+          <div class="div-img-txt"><img src="${sandslash.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div><div class="div-pokemon">
+          <div class="div-txt-txt"><span>Primape - 20%</span></div>
+          <div class="div-img-txt"><img src="${primeape.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div></div><div class="div-pokemon">
+          <div class="div-txt-txt"><span>Machoke - 20%</span></div>
+          <div class="div-img-txt"><img src="${machoke.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+}
+
+async function route24() {
+  let caterpie = await chamarPokemon(10);
+  let weedle = await chamarPokemon(13);
+  let pidgey = await chamarPokemon(16);
+  let abra = await chamarPokemon(63);
+  let oddish = await chamarPokemon(43);
+  let bellsprout = await chamarPokemon(69);
+
+
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 24</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Caterpie - 17.5%</span></div>
+          <div class="div-img-txt"><img src="${caterpie.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Weedle - 17.5%</span></div>
+          <div class="div-img-txt"><img src="${weedle.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Pidgey - 30%</span></div>
+          <div class="div-img-txt"><img src="${pidgey.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div><div class="div-pokemon">
+          <div class="div-txt-txt"><span>Abra - 15%</span></div>
+          <div class="div-img-txt"><img src="${abra.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div></div><div class="div-pokemon">
+          <div class="div-txt-txt"><span>Odish - 10%</span></div>
+          <div class="div-img-txt"><img src="${oddish.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div></div></div><div class="div-pokemon">
+          <div class="div-txt-txt"><span>Bellsprout - 10%</span></div>
+          <div class="div-img-txt"><img src="${bellsprout.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+}
+
+async function route25() {
+  let caterpie = await chamarPokemon(10);
+  let weedle = await chamarPokemon(13);
+  let pidgey = await chamarPokemon(16);
+  let abra = await chamarPokemon(63);
+  let oddish = await chamarPokemon(43);
+  let bellsprout = await chamarPokemon(69);
+
+
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Route 25</h1>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Caterpie - 15%</span></div>
+          <div class="div-img-txt"><img src="${caterpie.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Weedle - 15%</span></div>
+          <div class="div-img-txt"><img src="${weedle.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Pidgey - 25%</span></div>
+          <div class="div-img-txt"><img src="${pidgey.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div><div class="div-pokemon">
+          <div class="div-txt-txt"><span>Abra - 20%</span></div>
+          <div class="div-img-txt"><img src="${abra.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div></div><div class="div-pokemon">
+          <div class="div-txt-txt"><span>Odish - 12.5%</span></div>
+          <div class="div-img-txt"><img src="${oddish.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div></div></div><div class="div-pokemon">
+          <div class="div-txt-txt"><span>Bellsprout - 12.5%</span></div>
+          <div class="div-img-txt"><img src="${bellsprout.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+      </div>
+    `
+}
+
+async function PalletTown() {
+
+  let bulbasaur = await chamarPokemon(1);
+  let charmander = await chamarPokemon(4);
+  let squirtle = await chamarPokemon(7);
+
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Pallet Town</h1>
+      <span> Aqui é onde você escolhe o seu inicial </span>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Bulbasaur</span></div>
+          <div class="div-img-txt"><img src="${bulbasaur.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Charmander</span></div>
+          <div class="div-img-txt"><img src="${charmander.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+        </div>
+        <div class="div-pokemon">
+          <div class="div-txt-txt"><span>Squirtle</span></div>
+          <div class="div-img-txt"><img src="${squirtle.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map" alt=""></div>
+      </div>
+    `
+}
+async function ViridianCity() {
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Viridian City</h1>
+      <span>Aqui é a cidade do 8º ginásio e o lider Giovanni o aguarda</span>
+      <div class="div-imgs">
+        <img src="assets/img/giovanni.jpg" alt=""></div>
+      </div>
+    `
+}
+async function VictoryRoad() {
+  let moltres = await chamarPokemon(146);
+
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Cerulean Cave</h1>
+      <span> Esse é o local onde o lendário Moltres descança venha aqui tentar captura-lo </span>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-img-txt"><img src="${moltres.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map-legendary" alt=""></div>
+        </div>
+      </div>
+    `
+  }
+async function IndigoPlateu() {
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Indigo Plateu</h1>
+      <span>Aqui é o local onde a grandioza elite dos 4 estão, prontos para derrota-lo</span>
+      <div class="div-imgs">
+        <img src="assets/img/lorelei.jpg" alt="">
+        <img src="assets/img/bruno.jpg" alt=""><br>
+        <img src="assets/img/agatha.jpg" alt="">
+        <img src="assets/img/lance.jpg" alt="">
+      </div>
+      <span>e o seu rival e atual campeão de Kanto</span>
+      <div class="div-imgs">
+        <img src="assets/img/blue.jpg" alt="">
+      </div>
+    `
+}
+async function ViridianForest() {}
+async function PewterCity() {
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Pewter City</h1>
+      <span>Aqui é a cidade do 1º ginásio e o lider Brock o aguarda</span>
+      <div class="div-imgs">
+        <img src="assets/img/brock.jpg" alt=""></div>
+      </div>
+    `
+}
+async function MTMoon() {}
+async function CeruleanCity() {
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Pewter City</h1>
+      <span>Aqui é a cidade do 2º ginásio e a lider Misty está a sua espera</span>
+      <div class="div-imgs">
+        <img src="assets/img/misty.jpg" alt=""></div>
+      </div>
+    `
+}
+async function CeruleanCave() {
+  let mew2 = await chamarPokemon(150);
+
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Cerulean Cave</h1>
+      <span> Esse é o local onde o lendário Mewtwo descança venha aqui tentar captura-lo </span>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-img-txt"><img src="${mew2.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map-legendary" alt=""></div>
+        </div>
+      </div>
+    `
+}
+async function RockTunnel() {}
+async function LavenderTown() {}
+async function SaffronCity() {
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Saffron City</h1>
+      <span>Aqui é a cidade do 6º ginásio e a lider Sabrina está a sua espera</span>
+      <div class="div-imgs">
+        <img src="assets/img/sabrina.jpg" alt=""></div>
+      </div>
+    `
+}
+async function CeladonCity() {
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Celadon City</h1>
+      <span>Aqui é a cidade do 4º ginásio e a lider Erika está a sua espera</span>
+      <div class="div-imgs">
+        <img src="assets/img/erika.jpg" alt=""></div>
+      </div>
+    `
+}
+async function VermilionCity() {
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Vermilion City</h1>
+      <span>Aqui é a cidade do 2º ginásio e o lider lt. Surge o aguarda</span>
+      <div class="div-imgs">
+        <img src="assets/img/lt-surge.jpg" alt=""></div>
+      </div>
+    `
+}
+async function FuchsiaCity() {
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Fuchsia City</h1>
+      <span>Aqui é a cidade do 5º ginásio e o lider Koga o aguarda</span>
+      <div class="div-imgs">
+        <img src="assets/img/koga.jpg" alt=""></div>
+      </div>
+    `
+}
+async function CinnabarIsland() {
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Cinnabar City</h1>
+      <span>Aqui é a cidade do 7º ginásio e o lider Blaine o aguarda</span>
+      <div class="div-imgs">
+        <img src="assets/img/blaine.jpg" alt=""></div>
+      </div>
+    `
+}
+
+async function SeafonIsland() {
+  let articuno = await chamarPokemon(144);
+
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Cerulean Cave</h1>
+      <span> Esse é o local onde o lendário Articuno descança venha aqui tentar captura-lo </span>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-img-txt"><img src="${articuno.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map-legendary" alt=""></div>
+        </div>
+      </div>
+    `
+}
+
+async function PowerPlant() {
+  let zapdos = await chamarPokemon(145);
+
+  div_txt.innerHTML = `
+      <h1 class = "titulo-rota">Cerulean Cave</h1>
+      <span> Esse é o local onde o lendário Zapdos descança venha aqui tentar captura-lo </span>
+      <div class="div-imgs">
+        <div class="div-pokemon">
+          <div class="div-img-txt"><img src="${zapdos.sprites.versions['generation-v']['black-white'].animated.front_default}" class="img-txt-map-legendary" alt=""></div>
+        </div>
+      </div>
+    `
+}
+async function DiglettsCave() {}
+</script>
