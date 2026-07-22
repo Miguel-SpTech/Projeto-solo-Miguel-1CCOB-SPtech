@@ -1,19 +1,16 @@
-// ─── Sessão ───────────────────────────────────────────────────────────────────
+// ──────────────────────────────────────────────────────────────────────
 let idusuario = localStorage.getItem("idusuario");
 if (!idusuario) { window.location.href = "login.html"; }
 
-// ─── Elementos do DOM ────────────────────────────────────────────────────────
+// ───────────────────────────────────────────────────────────
 let button1      = document.getElementById("runButton");
 let img1         = document.getElementById("img_1");
 let pokemon_name = document.getElementById("pokemonName");
 
-// ─── Estado do jogo ──────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
 let pokemon      = 0;
 var route        = 1;
 
-// BUG 1 CORRIGIDO: havia duas variáveis para a vida do inimigo: "life/lifeMax" e "pokelife"
-// O battlePoke usava "pokelife" mas o findPokemon1 definia "life" — variáveis diferentes!
-// Agora existe só uma: pokelife (e pokelifeMax para calcular a barra em %)
 let pokelife    = 0;
 let pokelifeMax = 0;
 
@@ -28,11 +25,9 @@ let player = {
     qtdPokeball:     10,
 };
 
-// ─── AO CARREGAR: busca Treiner do banco ─────────────────────────────────────
+// ────────────────────────────────────────
 fetch(`/treiners/${idusuario}`)
     .then(function(resposta) {
-        // BUG 2 CORRIGIDO: sem verificar resposta.ok, se der 404 o código
-        // tentava fazer .json() de uma mensagem de texto e quebrava silenciosamente
         if (!resposta.ok) throw new Error("Treiner não encontrado: " + resposta.status);
         return resposta.json();
     })
@@ -55,7 +50,7 @@ fetch(`/treiners/${idusuario}`)
         alert("Erro ao carregar dados do jogador. Verifique se o servidor está rodando.");
     });
 
-// ─── Salva o estado do jogador no banco ──────────────────────────────────────
+// ─────────────────────────────────────────
 function salvarTreiner() {
     fetch("/treiners/atualizar", {
         method:  "POST",
@@ -76,7 +71,7 @@ function salvarTreiner() {
     .catch(function(erro) { console.log("Erro ao salvar treiner:", erro); });
 }
 
-// ─── Carrega pokédex do banco e marca registered no array local ───────────────
+// ──────────────────
 function carregarPokedexDoBanco() {
     fetch(`/pokemons/${idusuario}`)
         .then(function(resposta) { return resposta.json(); })
@@ -91,7 +86,7 @@ function carregarPokedexDoBanco() {
         .catch(function(erro) { console.log("Erro ao carregar pokédex:", erro); });
 }
 
-// ─── Carrega troféus do banco e marca unlocked no array local ─────────────────
+// ────────────────────
 function carregarTrofeusDoBanco() {
     fetch(`/trofeus/${idusuario}`)
         .then(function(resposta) { return resposta.json(); })
@@ -106,7 +101,7 @@ function carregarTrofeusDoBanco() {
         .catch(function(erro) { console.log("Erro ao carregar troféus:", erro); });
 }
 
-// ─── Atualiza os textos na sidebar ────────────────────────────────────────────
+// ───────────────────────────────────────────────
 function updateData() {
     document.getElementById("msm_qtdPokeball").innerHTML = `Pokebolas: ${player.qtdPokeball}`;
     document.getElementById("H3life").innerHTML          = `Life: ${player.life}`;
@@ -114,7 +109,7 @@ function updateData() {
 }
 setInterval(updateData, 1000);
 
-// ─── Auxiliares ───────────────────────────────────────────────────────────────
+// ──────────────────────────────────────────────────────────────────
 function rng(max, min) {
     return Math.random() * (max - min + 1) + min;
 }
@@ -123,18 +118,13 @@ function run() {
     routes["route" + route]();
 }
 
-// ─── FIGHT ────────────────────────────────────────────────────────────────────
+// ───────────────────────────────────────────────────────────────────────
 function battlePoke() {
     if (pokemon === 0 || pokelife <= 0) return;
 
-    // Aplica o dano do jogador
     pokelife -= player.damage;
     pokelife  = Math.max(0, pokelife);
 
-    // BUG 3 CORRIGIDO: o código antigo tentava getElementById("life") que não existe
-    // O elemento correto no HTML é id="hpFill"
-    // BUG 4 CORRIGIDO: a largura deve ser calculada em % relativa ao HP máximo,
-    // não o valor absoluto de pokelife (que podia passar de 100 e quebrar a barra)
     var hpPercent = (pokelife / pokelifeMax) * 100;
     var hpFill = document.getElementById("hpFill");
     var hpText = document.getElementById("hpText");
@@ -142,17 +132,15 @@ function battlePoke() {
     if (hpText) hpText.innerHTML   = `${Math.round(pokelife)} / ${pokelifeMax}`;
 
     if (pokelife <= 0) {
-        // Venceu: ganha pokeball e avança
         player.qtdPokeball += 1;
         salvarTreiner();
         run();
     } else {
-        // Leva dano de volta
         player.life = Math.max(0, player.life - pokemons[pokemon].damage);
     }
 }
 
-// ─── BAG ─────────────────────────────────────────────────────────────────────
+// ────────────────────────────────────────────────────────────────────────
 function catchPoke() {
     if (pokemon === 0) return;
     if (player.qtdPokeball <= 0) { alert("Sem pokebolas!"); return; }
@@ -173,7 +161,7 @@ function catchPoke() {
     run();
 }
 
-// ─── Registra pokemon no banco ────────────────────────────────────────────────
+// ───────────────────────────────────────────────────
 function registrarPokemonNoBanco(idPokemon) {
     fetch("/pokemons/registrar", {
         method:  "POST",
@@ -184,7 +172,7 @@ function registrarPokemonNoBanco(idPokemon) {
     .catch(function(erro) { console.log("Erro ao registrar pokemon:", erro); });
 }
 
-// ─── Verifica troféus de colecionador ────────────────────────────────────────
+// ───────────────────────────────────────────
 function verificarTrofeusColecionador() {
     const metas = [
         { trofeuId: 41, meta: 10  },
@@ -201,7 +189,7 @@ function verificarTrofeusColecionador() {
     });
 }
 
-// ─── Desbloqueia troféu no banco e no array local ────────────────────────────
+// ───────────────────────────────
 function desbloquearTrofeuNoBanco(idTrofeu) {
     trophies[idTrofeu - 1].unlocked = true;
     fetch("/trofeus/desbloquear", {
@@ -213,18 +201,16 @@ function desbloquearTrofeuNoBanco(idTrofeu) {
     .catch(function(erro) { console.log("Erro ao desbloquear troféu:", erro); });
 }
 
-// ─── Exibe o pokémon encontrado na rota ──────────────────────────────────────
+// ─────────────────────────────────────────
 async function findPokemon1() {
     if (pokemon === 0 || pokemon > 151) return;
 
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
     const data     = await response.json();
 
-    // BUG 5 CORRIGIDO: havia shinychance >= 8192, o que nunca acontece com Math.random
-    // O correto é == 8192 (chance de 1 em 8192)
     let shinychance = rng(8192, 1).toFixed(0);
 
-    // Define a vida do inimigo ANTES de liberar o FIGHT
+    
     pokelifeMax = pokemons[pokemon].life;
     pokelife    = pokemons[pokemon].life;
 
@@ -234,18 +220,17 @@ async function findPokemon1() {
     if (hpText) hpText.innerHTML   = `${pokelifeMax} / ${pokelifeMax}`;
 
     if (pokemons[pokemon].canFind) {
-        // BUG 6 CORRIGIDO: sprites.versions['generation-v']... pode não existir em todos os pokémons
-        // Usando front_default/front_shiny que sempre existem na PokeAPI
+        
         img1.src               = shinychance == 8192
-            ? data.sprites.front_shiny
-            : data.sprites.front_default;
+            ? data.sprites.versions['generation-v']['black-white'].animated.front_shiny
+            : data.sprites.versions['generation-v']['black-white'].animated.front_default;
         pokemon_name.innerHTML = shinychance == 8192
             ? `${pokemons[pokemon].name} ✨`
             : pokemons[pokemon].name;
     }
 }
 
-// ─── Funções dos líderes de ginásio ──────────────────────────────────────────
+// ─────────────────────────────────────────────
 function carregarLider(indice, imgSrc, nomeRota, nomeLider) {
     img1.src = imgSrc;
     document.getElementById("spanRoute").innerHTML   = nomeRota;

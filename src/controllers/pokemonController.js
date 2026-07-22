@@ -1,6 +1,5 @@
 var pokemonModel = require("../models/pokemonModel");
 
-// Retorna todos os pokemons capturados do usuário
 function buscarPokemons(req, res) {
     var idusuario = req.params.idusuario;
 
@@ -19,7 +18,6 @@ function buscarPokemons(req, res) {
     }
 }
 
-// Registra um pokemon capturado
 function registrarPokemon(req, res) {
     var idusuario = req.body.idusuario;
     var idPokemon = req.body.idPokemon;

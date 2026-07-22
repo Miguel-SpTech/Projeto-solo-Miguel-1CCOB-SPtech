@@ -1,6 +1,5 @@
 var database = require("../database/config");
 
-// Busca todos os pokemons capturados por um usuário
 function buscarPokemonsPorUsuario(idusuario) {
     console.log("ACESSEI O POKEMON MODEL - function buscarPokemonsPorUsuario():", idusuario);
 
@@ -15,7 +14,6 @@ function buscarPokemonsPorUsuario(idusuario) {
     return database.executar(instrucaoSql);
 }
 
-// Registra um novo pokemon capturado para o usuário
 function registrarPokemon(idusuario, idPokemon) {
     console.log("ACESSEI O POKEMON MODEL - function registrarPokemon():", idusuario, idPokemon);
 

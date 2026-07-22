@@ -15,7 +15,7 @@ function autenticar(req, res) {
                 console.log(`\nResultados encontrados: ${resultado.length}`);
 
                 if (resultado.length == 1) {
-                    // Login OK — devolve os dados do jogador para o front salvar no localStorage
+                    
                     res.json({
                         idusuario:  resultado[0].idusuario,
                         name:       resultado[0].Name,

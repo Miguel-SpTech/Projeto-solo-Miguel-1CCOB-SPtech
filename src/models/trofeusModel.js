@@ -1,6 +1,5 @@
 var database = require("../database/config");
 
-// Busca todos os troféus desbloqueados de um usuário
 function buscarTrofeusPorUsuario(idusuario) {
     console.log("ACESSEI O TROFEUS MODEL - function buscarTrofeusPorUsuario():", idusuario);
 
@@ -15,7 +14,6 @@ function buscarTrofeusPorUsuario(idusuario) {
     return database.executar(instrucaoSql);
 }
 
-// Registra um troféu desbloqueado para o usuário
 function desbloquearTrofeu(idusuario, idTrofeu) {
     console.log("ACESSEI O TROFEUS MODEL - function desbloquearTrofeu():", idusuario, idTrofeu);
 

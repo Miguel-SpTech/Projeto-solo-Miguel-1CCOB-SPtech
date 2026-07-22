@@ -51,6 +51,7 @@
             margin-bottom: 16px;
             border-bottom: 1px solid #333;
             padding-bottom: 8px;
+            margin-top: 1vh;
         }
 
         .trofeus-grid {
@@ -172,6 +173,20 @@
             width: 50px;
         }
 
+        .graficos {
+            display: flex;
+            gap: 5vh;
+        }
+
+        .separacao-grafico {
+            height: 50vh;
+            width: 50vh;
+            border: 1px solid #333;
+            border-radius: 3vh;
+            box-shadow: 2px 2px 2px 2px #333;
+        }
+
+
         /* ── Botão sair ── */
         .btn-sair {
             background: transparent;
@@ -232,16 +247,27 @@
                 <div class="label">Troféus desbloqueados</div>
             </div>
         </div>
+        <div class="section-title">Gráficos</div>
+        <div class="graficos">
+            
+            <div class="separacao-grafico">
+                <canvas id="pokedex-grafico"></canvas>
+            </div>
+            <div class="separacao-grafico">
+                <canvas id="trophies-grafico">
+            </div>
+            
+        </div>
 
         <!-- BARRA DE PROGRESSO DA POKÉDEX -->
         <div class="progress-wrap">
             <div class="section-title">Pokedex</div>
-            <div class="progress-label">
+            <!-- <div class="progress-label">
                 <span><span id="progressNum">0</span> / 151</span>
             </div>
                 <div class="progress-bar-bg">
                     <div class="progress-bar-fill" id="progressFill" style="width: 0%"></div>
-                </div>
+                </div> -->
                 <div class="pokedex-grid" id="pokedexGrid">
 
                 </div>
@@ -259,9 +285,12 @@
 <!-- trophies.js precisa vir antes do script inline -->
 <script src="../js/trophies.js"></script>
 <script src="../js/pokemon.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     // ── Pega o idusuario salvo no login ───────────────────────────────────────
     const idusuario = localStorage.getItem("idusuario");
+    // var capturados = 0;
+    // var conquistados = 0;
     
 
     // ── Exibe o nickname ──────────────────────────────────────────────────────
@@ -279,6 +308,9 @@
             document.getElementById("statDamage").textContent   = treiner.TrainerDamage;
             document.getElementById("statLife").textContent     = treiner.TrainerLife;
             document.getElementById("statBadges").textContent   = treiner.Badges;
+            let capturados = treiner.pokedex;
+            plotarGraficoPokedex(capturados)
+            
 
             // Barra de progresso
             const pct = ((treiner.pokedex / 151) * 100).toFixed(1);
@@ -291,7 +323,8 @@
     fetch(`/trofeus/${idusuario}`)
         .then(r => r.json())
         .then(function(trofeusDesbloqueados) {
-
+            let conquistados = trofeusDesbloqueados.length;
+            plotarGraficoTrofeus(conquistados)
             // Marca no array local os que o banco retornou
             trofeusDesbloqueados.forEach(function(t) {
                 if (trophies[t.idtrofeu - 1]) {
@@ -329,7 +362,7 @@
                 const dexGrid = document.getElementById("pokedexGrid");
                 const card = document.createElement("div");
                 card.className = `pokedex-card`
-                const pokemon = chamarPokemon(p);
+                let pokemon = chamarPokemon(p);
 
                 card.innerHTML = `
                     <div class="pokedex-icon">${p.registred ? `<img src="${pokemon.sprites.versions['generation-v']['black-white'].animated.front_default}"` : '<img src="../assets/img/dots.png" alt="">'}</div>
@@ -343,7 +376,6 @@
             
         });
 
-    // ── Logout ────────────────────────────────────────────────────────────────
     function sair() {
         localStorage.clear();
         window.location.href = "../login.html";
@@ -357,6 +389,53 @@
 
         return data
     }
+    
+    
+    
+    
+
+    
+    
+
+    function plotarGraficoPokedex(capturados){
+        
+        let not_capturados = 151 - capturados;
+        let informacao_pokedex = [capturados, not_capturados]
+        console.log(capturados)
+        console.log(not_capturados)
+        
+        let grafico_pokedex = new Chart(document.getElementById('pokedex-grafico'), {
+    type: 'pie',
+    data: {
+        labels: ['Capturados', 'Não Capturados'],
+        datasets: [{
+            data: informacao_pokedex,
+            backgroundColor: ['#ff0000', '#444']
+        }]
+    }
+    });
+    }
+
+    function plotarGraficoTrofeus(conquistados) {
+        let not_conquistados = 52 - conquistados;
+        let informacao_trofeus = [conquistados, not_conquistados]
+        console.log(conquistados)
+        console.log(not_conquistados)
+
+        let grafico_trofeus = new Chart(document.getElementById('trophies-grafico'), {
+            type: 'pie',
+            data: {
+            labels: ['Consquistados', 'Não Consquistados'],
+            datasets: [{
+            data: informacao_trofeus,
+            backgroundColor: ['rgb(127, 198, 246)', '#444']
+        }]
+    }
+    });
+
+    }
+
+    
 </script>
 
 </body>

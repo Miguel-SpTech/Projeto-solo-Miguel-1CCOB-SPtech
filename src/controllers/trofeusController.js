@@ -1,6 +1,5 @@
 var trofeusModel = require("../models/trofeusModel");
 
-// Retorna todos os troféus desbloqueados do usuário
 function buscarTrofeus(req, res) {
     var idusuario = req.params.idusuario;
 
@@ -19,7 +18,6 @@ function buscarTrofeus(req, res) {
     }
 }
 
-// Desbloqueia um troféu para o usuário
 function desbloquearTrofeu(req, res) {
     var idusuario = req.body.idusuario;
     var idTrofeu  = req.body.idTrofeu;
